@@ -1,24 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+
+import { Route, Switch, Redirect, BrowserRouter } from "react-router-dom";
+
+import Intro from "./Intro/Intro"
+import TopicList from './TopicList/TopicList';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Switch>
+          <Route path="/" exact component={Intro} />
+          <Route path="/topics" exact component={TopicList} />
+          <Redirect exact to="/"/>
+        </Switch>
+      </BrowserRouter>
+      <footer>© 서울대학교 팩트체크연구소 2020</footer>
     </div>
   );
 }
