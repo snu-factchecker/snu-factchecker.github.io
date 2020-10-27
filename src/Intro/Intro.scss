@@ -1,0 +1,28 @@
+#intro{
+	#title{
+		font-weight: 700;
+		font-size: 56px;
+		margin-top: 200px;
+	}
+
+	#introtext{
+		margin: 50px auto;
+		width: 70%;
+	}
+
+	button{
+		background-image: none;
+		border: none;
+		display: block;
+		cursor: pointer;
+
+		margin: 30px auto;
+		border-radius: 5px;
+		width: 200px;
+		height: 40px;
+		&:hover{
+			background-color: #969696;
+			transition: background-color 0.3s ease-in-out;
+		}
+	}
+}

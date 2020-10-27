@@ -1,0 +1,190 @@
+#quiz{
+	display:grid;
+	grid-template-rows: 200px auto;
+	grid-template-columns: 65% 35%;
+
+	#quiz-header{
+		grid-column-start: 1;
+		grid-column-end: 3;
+		#header-title{
+			font-weight: 700;
+			font-size: 24px;
+			position: relative;
+			top: -10px;
+		}
+		#tip-box{
+			background-color: #457B9D;
+			padding: 10px 0;
+			#tip-title{
+				color: white;
+				font-weight: 700;
+				font-size: 20px;
+			}
+			#tip-content{
+				align-self: center;
+				margin: 10px 20px;
+				padding: 5px 0;
+				background-color: white;
+			}
+		}
+	}
+
+	.quizContent{
+		text-align: left;
+		padding: 20px;
+		border: 2px gray solid;
+		height: 480px;
+		overflow: scroll;
+
+		#quizitem-title{
+			font-weight: 700;
+			font-size: 20px;
+			.clue-tooltip{
+				font-weight: 400;
+				font-size: 16px;
+			}
+		}
+
+		#quizitem-author{
+			padding: 10px 0;
+			border-bottom: 1px darkgray solid;
+		}
+
+		#quizitem-image{
+			width: 400px;
+			margin: 10px 0;
+		}
+
+		#source{
+			margin-top: 10px;
+			color: gray;
+		}
+	}
+
+	#searchpage{
+		text-align: left;
+		padding: 20px;
+		border: 2px gray solid;
+		height: 480px;
+		display: grid;
+
+		grid-template-rows: 50px  1fr;
+
+		#searchOverlay{
+			//display: none;
+			position: absolute;
+			top:0;
+			left:0;
+			width: inherit;
+			height: 100vh;
+			height: inherit;
+			background-color: rgba($color: #000000, $alpha: 0.7);
+		}
+
+		#searchbox{
+			border: 1px darkgray solid;
+			align-self: center;
+			padding: 5px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			svg{
+				width: 2em
+			}
+		}
+
+		#searchresults{
+			overflow: scroll;
+
+			.search-result{
+				//max-height: 200px;
+				display:grid;
+				grid-template-columns: 180px 1fr;
+				column-gap: 20px;
+				margin: 10px 5px;
+				padding: 5px;
+				border: 1px gray solid;
+				.item-image{
+					max-width: 100%; height: auto
+				}
+
+				.item-title{
+					font-weight: 600;
+					font-size: 16px;
+				}
+
+				.item-preview, .item-source, .item-date{
+					font-size: 14px;
+					color: gray;
+				}
+
+				.sourceBox{
+					display: flex;
+					.item-source, .item-date{
+						margin-right: 10px;
+					}
+				}
+			}
+		}
+	}
+
+	.left{
+		display:grid;
+		grid-template-rows: 200px auto;
+	}
+	#notebook{
+		text-align: left;
+		padding: 10px;
+		border: 2px gray solid;
+		margin: 10px 0 0 10px;
+		justify-self: stretch;
+
+		background-color: rgb(255, 207, 87);
+
+		display:grid;
+		grid-template-rows: 47% 47%;
+		row-gap: 5%;
+
+		.values{
+			background-color: white;
+			padding: 0 10px;
+		}
+		.notebook-title{
+			font-weight: 700;
+			margin: 10px 0;
+			color: #666666;
+		}
+
+		.keyword{
+			cursor: pointer;
+			&:hover{
+				color: #969696;
+			}
+		}
+	}
+
+	#buttons{
+		position: fixed;
+		bottom: 20px;
+		right: 20px;
+		display:flex;
+		justify-content: space-between;
+
+		width: 420px;
+	}
+	button{
+		background-image: none;
+		border: none;
+		display: block;
+		cursor: pointer;
+
+
+		border-radius: 5px;
+		width: 200px;
+		height: 40px;
+		&:hover{
+			background-color: #969696;
+			transition: background-color 0.3s ease-in-out;
+		}
+	}
+}

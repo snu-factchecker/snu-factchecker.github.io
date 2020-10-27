@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 class Topic extends React.Component{
 	moveToTopic = (link) =>{
@@ -7,11 +8,11 @@ class Topic extends React.Component{
 
 	render(){
 		return(
-			<div className="topicPreview" onClick={this.moveToTopic(this.props.link)}>
+			<div className="topic-preview" onClick={()=>this.moveToTopic(this.props.link)}>
 				<div className="topic-text">{this.props.text}</div>
 			</div>
 		)
 	}
 }
 
-export default Topic
+export default withRouter(Topic)
