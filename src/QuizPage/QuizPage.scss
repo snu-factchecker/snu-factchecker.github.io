@@ -1,7 +1,58 @@
 #quiz{
 	display:grid;
-	grid-template-rows: 200px auto;
+	grid-template-rows: 200px 1fr;
 	grid-template-columns: 65% 35%;
+
+	#quiz-result{
+		grid-column-start: 1;
+		grid-column-end: 3;
+		grid-row: 2;
+		border: 2px gray solid;
+		align-self: stretch;
+		background-color: white;
+		height: 480px;
+
+		padding-top: 30px;
+
+		display: grid;
+		#factmeter{
+			width: 40%!important;
+		}
+
+		#result{
+			ol{
+				text-align: left;
+				margin: 0 auto;
+				width: fit-content;
+				li{
+					width: fit-content;
+				}
+			}
+		}
+
+		#myresults{
+			display: grid;
+			grid-template-columns: 50% 50%;
+		}
+	
+		.notebook-title{
+			font-weight: 700;
+			margin: 10px 0;
+			color: #666666;
+		}
+
+		.notebook-content{
+			background-color: white;
+			padding: 10px 40px;
+			border: 1px gray solid;
+			width: fit-content;
+			margin: 0 auto;
+		}
+
+		#clueCount{
+			margin-top: 10px;
+		}
+	}
 
 	#quiz-header{
 		grid-column-start: 1;
@@ -67,7 +118,7 @@
 		border: 2px gray solid;
 		height: 480px;
 		display: grid;
-
+		grid-row: 2;
 		grid-template-rows: 50px  1fr;
 
 		#searchOverlay{
@@ -111,11 +162,23 @@
 				.item-title{
 					font-weight: 600;
 					font-size: 16px;
+					cursor: pointer;
+				}
+
+				.item-content{
+					overflow: scroll;
+					height: fit-content;
+					max-height: 1000px;
+					transition: all 0.5s ease-in-out;
+					&.invisible{
+						overflow: hidden;
+						max-height:0;
+					}
 				}
 
 				.item-preview, .item-source, .item-date{
-					font-size: 14px;
-					color: gray;
+					font-size: 14px ;
+					color: gray ;
 				}
 
 				.sourceBox{
@@ -178,13 +241,15 @@
 		display: block;
 		cursor: pointer;
 
-
 		border-radius: 5px;
 		width: 200px;
 		height: 40px;
 		&:hover{
 			background-color: #969696;
 			transition: background-color 0.3s ease-in-out;
+			&:disabled{
+				background-color: rgb(239, 239, 239);
+			}
 		}
 	}
 }

@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 
 class Topic extends React.Component{
 	moveToTopic = (link) =>{
-		this.props.history.push("/"+link);
+		this.props.history.push("/topic/"+link);
 	}
 
 	render(){
