@@ -7,6 +7,10 @@ class Intro extends React.Component{
 		this.props.history.push("/topics")
 	}
 
+	gameGuide = () =>{
+		this.props.history.push("/help")
+	}
+
 	render() {
 		return(<div id="intro">
 			<div id="title">
@@ -16,7 +20,7 @@ class Intro extends React.Component{
 			</div>
 
 			<button onClick={() => this.PlayGame()}>게임 시작하기</button>
-			<button onClick={() => this.PlayGame()}>도움말</button>
+			<button onClick={() => this.gameGuide()}>도움말</button>
 
 		</div>)
 	}
