@@ -11,9 +11,9 @@ import TopicList from './TopicList/TopicList';
 import QuizPage from './QuizPage/QuizPage';
 import QuizPage2 from './QuizPage/Quiz2';
 import QuizPage3 from './QuizPage/Quiz3';
-import QuizPage4 from './QuizPage/QuizPage4';
-import QuizPage5 from './QuizPage/QuizPage5';
-import QuizPage6 from './QuizPage/QuizPage6';
+import QuizPage4 from './QuizPage/Quiz4';
+import QuizPage5 from './QuizPage/Quiz5';
+import QuizPage6 from './QuizPage/Quiz6';
 
 class App extends React.Component {
   render(){
