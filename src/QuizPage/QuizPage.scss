@@ -216,6 +216,18 @@
 	.left{
 		display:grid;
 		grid-template-rows: 200px auto;
+		#factmeter{
+			width: 80%;
+			margin: 0 auto;
+			#gauge{
+				width: 100%;
+			}
+			#labels{
+				display:flex;
+				width: 100%;
+				justify-content: space-around;
+			}
+		}
 	}
 	#notebook{
 		text-align: left;
@@ -227,8 +239,12 @@
 		background-color: rgb(255, 207, 87);
 
 		display:grid;
-		grid-template-rows: 65% 30%;
+		grid-template-rows: 8% 50% 30%;
 		row-gap: 5%;
+
+		#title{
+			font-weight: 700;
+		}
 
 		.values{
 			background-color: white;

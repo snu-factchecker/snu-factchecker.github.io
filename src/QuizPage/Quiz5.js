@@ -280,11 +280,13 @@ EU의 공식 통계 기구인 유로스타트(Eurostat)가 1일 '노동절'을 �
 			</div>):(null)}
 			
 			{this.state.currentStep <2 ?(<div className="left">
-				<div id="factmeter">
+			<div id="factmeter">
+					<div id="labels"><div style={{color: "red"}}>거짓</div><div style={{color: "#009a00"}}>사실</div></div>
 					<GaugeChart id="gauge" percent={(this.state.factScore + 50) / 100} hideText={true} nrOfLevels={2} colors={["#FF0000","#009a00"]}/>
 					<div>{this.formatGaugeValue(this.state.factScore+50)}</div>
 				</div>
 				<div id="notebook">
+					<div id="title">탐사 노트</div>
 					<div id="characteristics" className="values">
 						<div id="char-title" className="notebook-title">정보의 특징</div>
 						<div>{clues}</div>
