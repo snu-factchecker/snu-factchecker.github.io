@@ -285,13 +285,14 @@ ICRP 60(ICRP 1991b)에서 권고한 기존 선량한도가 계속 적절한 수�
 						<li>외신 비판과 원자료를 살펴보니 일본이 2011년 20 수준으로 올렸다는 것이 확인되었음 
 </li>
 					</ol>
-					따라서 사실이라고 볼 수 있음!
+					따라서 <span id="spec">사실</span>이라고 볼 수 있음!
 				</div>
 
 				<div id="myresults">
 					<div>
 						<div className="notebook-title">나의 결과</div>
 						<div>{this.formatGaugeValue(this.state.factScore+50)}</div>
+						<div id="resultcheck"></div>
 					</div>
 					<div>
 						<div className="notebook-title">내가 찾은 단서들</div>

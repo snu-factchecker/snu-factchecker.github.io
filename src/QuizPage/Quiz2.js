@@ -275,7 +275,7 @@ class QuizPage2 extends React.Component{
 						<li>40매는 지급된 양이 아니라 지급할 계획이며, 현재 7매씩만 지급(추후 공급 예측 불가)</li>
 						<li>일본 역시 전국적으로 마스크가 부족한 상황</li>
 					</ol>
-					따라서 전혀 사실이 아님!
+					따라서 <span id="spec">전혀 사실이 아님!</span>
 				</div>
 
 				<div id="myresults">

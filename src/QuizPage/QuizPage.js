@@ -274,7 +274,7 @@ class QuizPage extends React.Component{
 						<li>신뢰할 수 있는 사이트, 이용자의 정보가 아니었고 </li>
 						<li>올해 사진이 아니었음</li>
 					</ol>
-					따라서 전혀 사실이 아님!
+					따라서 <span id="spec">전혀 사실이 아님!</span>
 				</div>
 
 				<div id="myresults">

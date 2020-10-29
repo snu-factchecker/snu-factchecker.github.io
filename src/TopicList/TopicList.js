@@ -9,9 +9,6 @@ class TopicList extends React.Component{
 			text: "국가행사",
 			link: 1,
 		},{
-			text: "정부정책",
-			link: 2
-		},{
 			text: "사회/IT과학",
 			link: 3
 		},{

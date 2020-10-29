@@ -313,7 +313,7 @@ class QuizPage3 extends React.Component{
 						<li>전문가 의견 탐색 결과,  WHO의 주장 자체를 
    기사가 잘못 표기했음</li>
 					</ol>
-					따라서 전혀 사실이 아님!
+					따라서 <span id="spec">전혀 사실이 아님!</span>
 				</div>
 
 				<div id="myresults">

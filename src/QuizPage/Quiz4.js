@@ -311,7 +311,7 @@ class QuizPage4 extends React.Component{
 						<li>실제 원 정보를 보니 그런 내용이 없었고</li>
 						<li>이를 증명할 다른 사례도 있었음</li>
 					</ol>
-					따라서 전혀 사실이 아님!
+					따라서 <span id="spec">전혀 사실이 아님!</span>
 				</div>
 
 				<div id="myresults">
