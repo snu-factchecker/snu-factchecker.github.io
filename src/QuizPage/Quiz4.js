@@ -282,7 +282,7 @@ class QuizPage4 extends React.Component{
 			
 			{this.state.currentStep <2 ?(<div className="left">
 				<div id="factmeter">
-					<GaugeChart id="gauge" percent={(this.state.factScore + 50) / 100} hideText={true} nrOfLevels={2} colors={["#FF0000","#00FF00"]}/>
+					<GaugeChart id="gauge" percent={(this.state.factScore + 50) / 100} hideText={true} nrOfLevels={2} colors={["#FF0000","#009a00"]}/>
 					<div>{this.formatGaugeValue(this.state.factScore+50)}</div>
 				</div>
 				<div id="notebook">
@@ -324,7 +324,7 @@ class QuizPage4 extends React.Component{
 						<div className="notebook-content">{clues}</div>
 					</div>
 				</div>
-				<div id="clueCount">총 7개의 단서 중 {clues.length}개의 단서를 찾았습니다.</div>
+				<div id="clueCount">총 7개의 단서 중 <span id="spec">{clues.length}</span>개의 단서를 찾았습니다.</div>
 				<div>
 					본 퀴즈 내용에 대한 상세한 팩트체크 내용은 
 					SNU팩트체크센터 홈페이지 다음 링크에 있습니다.<br></br>

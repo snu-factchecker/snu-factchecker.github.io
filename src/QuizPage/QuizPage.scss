@@ -1,5 +1,6 @@
 #quiz{
 	display:grid;
+	height: 85vh;
 	grid-template-rows: 200px 1fr;
 	grid-template-columns: 65% 35%;
 
@@ -10,14 +11,11 @@
 		border: 2px gray solid;
 		align-self: stretch;
 		background-color: white;
-		height: 480px;
+		min-height: 480px;
 
 		padding-top: 30px;
 
 		display: grid;
-		#factmeter{
-			width: 40%!important;
-		}
 
 		#result{
 			ol{
@@ -51,6 +49,12 @@
 
 		#clueCount{
 			margin-top: 10px;
+			font-size: 20px;
+			#spec{
+				font-weight: 700;
+				font-size: 24px;
+				color: rgb(206, 0, 0);
+			}
 		}
 	}
 
@@ -84,8 +88,9 @@
 		text-align: left;
 		padding: 20px;
 		border: 2px gray solid;
-		height: 480px;
-		overflow: scroll;
+		min-height: 480px;
+		align-self: stretch;
+		overflow-y: scroll;
 
 		#quizitem-title{
 			font-weight: 700;
@@ -116,7 +121,8 @@
 		text-align: left;
 		padding: 20px;
 		border: 2px gray solid;
-		height: 480px;
+		min-height: 480px;
+		align-self: stretch;
 		display: grid;
 		grid-row: 2;
 		grid-template-rows: 50px  1fr;
@@ -145,7 +151,7 @@
 		}
 
 		#searchresults{
-			overflow: scroll;
+			overflow-y: scroll;
 
 			.search-result{
 				//max-height: 200px;
@@ -170,7 +176,7 @@
 				}
 
 				.item-content{
-					overflow: scroll;
+					overflow-y: scroll;
 					height: fit-content;
 					max-height: 1000px;
 					transition: all 0.5s ease-in-out;
@@ -215,7 +221,7 @@
 		.values{
 			background-color: white;
 			padding: 0 10px;
-			overflow: scroll;
+			overflow-y: scroll;
 		}
 		.notebook-title{
 			font-weight: 700;

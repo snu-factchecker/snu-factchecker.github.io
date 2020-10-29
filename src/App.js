@@ -29,6 +29,7 @@ class App extends React.Component {
           2. 1단계에서 찾은 키워드를 클릭하여 검색해 봅니다. <br/>
           <div style={{paddingLeft: "10px"}}>
             <li>검색 결과로 나타난 자료들을 추가적으로 분석하여 힌트를 더 얻고, 정보의 정확성을 판단합니다.</li>
+            <li>찾은 힌트들을 클릭하면, 수첩에 저장됩니다.</li>
           </div>
           </div>
         </div>
