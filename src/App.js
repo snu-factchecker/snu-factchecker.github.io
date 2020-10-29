@@ -20,13 +20,16 @@ class App extends React.Component {
     return (
       <div className="App">
         <div id="guide">
-          <div id="guide-title">팩트체크의 기본 원리</div>
-          <div id="guide-text">1. 정보를 있는 그대로 받아들이지 않는다.<br/><br/>
-          2. 정보 표면을 둘러싼 내용들을 의심해본다. <br/>
-            1) 정보의 출처를 확인한다. <br/>
-            2) 저자를 확인해본다. <br/>
-            3) 언제, 어디서 만들어진 것인지 알아본다.<br/>
-            4) 다른 정보를 추가적으로 찾아본다.<br/>
+          <div id="guide-title">게임 플레이 방법</div>
+          <div id="guide-text">1. 주어진 자료에서 힌트 및 키워드를 찾습니다.<br/>
+          <div style={{paddingLeft: "10px"}}><li>유의미한 자료들에 마우스를 올리면 자료에 대한 해석이 나타나고, 이를 클릭하면 힌트 혹은 키워드를 얻을 수 있습니다.</li>
+          <li>최대한 많은 키워드를 발견해 보세요!</li>
+          </div>
+          <br/>
+          2. 1단계에서 찾은 키워드를 클릭하여 검색해 봅니다. <br/>
+          <div style={{paddingLeft: "10px"}}>
+            <li>검색 결과로 나타난 자료들을 추가적으로 분석하여 힌트를 더 얻고, 정보의 정확성을 판단합니다.</li>
+          </div>
           </div>
         </div>
         <div id="main">

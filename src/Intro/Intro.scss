@@ -2,11 +2,11 @@
 	#title{
 		font-weight: 700;
 		font-size: 56px;
-		margin-top: 200px;
+		margin-top: 100px;
 	}
 
 	#introtext{
-		margin: 50px auto;
+		margin: 30px auto;
 		width: 70%;
 	}
 
@@ -16,7 +16,7 @@
 		display: block;
 		cursor: pointer;
 	
-		margin: 30px auto;
+		margin: 20px auto;
 		border-radius: 5px;
 		width: 200px;
 		height: 40px;
@@ -24,6 +24,40 @@
 			background-color: #969696;
 			transition: background-color 0.3s ease-in-out;
 		}
+	}
+
+	#intro-guide{
+		text-align: left;
+		width: fit-content;
+		padding: 20px;
+		padding-top: 15px;
+		margin: 10px auto;
+		background-color: darkorange;
+		#guide-title{
+			margin-bottom: 10px;
+			font-weight: 700;
+			text-align: center;
+		}
+
+		#guide-text{
+			background-color: white;
+			padding: 10px;
+		}
+	}
+
+}
+
+#help{
+	height: 90vh;
+	overflow: scroll;
+	padding: 0 0 30px;
+	text-align: left;
+	img{
+		max-width: 60%;;
+	}
+
+	strong{
+		font-size: 24px;
 	}
 }
 

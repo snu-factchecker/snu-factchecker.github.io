@@ -38,7 +38,8 @@ class QuizPage6 extends React.Component{
 	}
 
 	returnToTopics = ()=>{
-		this.props.history.push("/topics")
+		this.props.history.push("/topics");
+		window.open("https://forms.gle/TWFFSkc8XVzKZSsH9");
 	}
 
 
