@@ -320,7 +320,7 @@ class QuizPage3 extends React.Component{
 					<div id="resp">
 						<div className="notebook-title">나의 결과</div>
 						<div id="myresponse">{this.formatGaugeValue(this.state.factScore+50)}</div>
-		<div id="resultcheck">{this.formatGaugeValue(this.state.factScore+50)==="전혀 사실 아님"?(<div>정답과 일치합니다. <br/>성공적으로 팩트체크를 진행하셨습니다.</div>):(<div>결과가 일치하지 않습니다.<br/>이전 단계로 돌아가서 다른 단서를 더 찾아보세요.</div>)}</div>
+		<div id="resultcheck">{this.formatGaugeValue(this.state.factScore+50)==="전혀 사실 아님"?(<div>정답과 일치합니다. <br/>성공적으로 팩트체크를 진행하셨습니다.</div>):(<div>결과가 일치하지 않습니다.<br/>단서를 더 찾고 싶다면 이전 단계로 돌아가서 찾아보세요.</div>)}</div>
 					</div>
 					<div>
 						<div className="notebook-title">내가 찾은 단서들</div>
