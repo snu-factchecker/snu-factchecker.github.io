@@ -49,7 +49,7 @@ class App extends React.Component {
           </Switch>
         </ConnectedRouter>
         </div>
-        <footer>© 서울대학교 팩트체크연구소 2020</footer>
+        <footer>© SNU 팩트체크센터</footer>
       </div>
     );
   }
