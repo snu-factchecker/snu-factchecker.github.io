@@ -37,6 +37,12 @@
 		#myresults{
 			display: grid;
 			grid-template-columns: 50% 50%;
+
+			#myresponse{
+				font-weight: 700;
+				font-size: 24px;
+				color: rgb(25, 148, 0);
+			}
 		}
 	
 		.notebook-title{
