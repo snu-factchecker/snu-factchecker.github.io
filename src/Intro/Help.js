@@ -10,6 +10,10 @@ class Help extends React.Component{
 		this.props.history.push("/topics")
 	}
 
+	playTutorial = () =>{
+		this.props.history.push("/tutorial")
+	}
+
 
 	render() {
 		return(<div id="help">
@@ -32,6 +36,7 @@ class Help extends React.Component{
 			<img src={img3}/>
 			<div>페이지 상단에 있는 팁을 유심히 읽어 보세요.</div>
 
+			<button onClick={() => this.playTutorial()}>튜토리얼 진행하기</button>
 			<button onClick={() => this.PlayGame()}>게임 시작하기</button>
 
 		</div>)
