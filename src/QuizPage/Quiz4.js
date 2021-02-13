@@ -285,6 +285,7 @@ class QuizPage4 extends React.Component{
 					<div id="labels"><div style={{color: "red"}}>거짓</div><div style={{color: "#009a00"}}>사실</div></div>
 					<GaugeChart id="gauge" percent={(this.state.factScore + 50) / 100} hideText={true} nrOfLevels={2} colors={["#FF0000","#009a00"]}/>
 					<div>{this.formatGaugeValue(this.state.factScore+50)}</div>
+					<div>총 단서 7개 중 {this.state.cluesCollected.length}개를 찾았습니다.</div>
 				</div>
 				<div id="notebook">
 					<div id="title">탐사 노트</div>
