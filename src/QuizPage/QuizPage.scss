@@ -228,6 +228,18 @@
 				justify-content: space-around;
 			}
 		}
+		#factmeter{
+			width: 80%;
+			margin: 0 auto;
+			#gauge{
+				width: 100%;
+			}
+			#labels{
+				display:flex;
+				width: 100%;
+				justify-content: space-around;
+			}
+		}
 	}
 	#notebook{
 		text-align: left;

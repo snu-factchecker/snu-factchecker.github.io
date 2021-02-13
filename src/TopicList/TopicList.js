@@ -4,6 +4,12 @@ import Topic from "./Topic"
 import "./Topic.scss"
 
 import img1 from "../QuizPage/quiz1_img.png";
+import img2 from "../QuizPage/quiz2_img.png";
+import img3 from "../QuizPage/quiz3_img.png";
+import img4 from "../QuizPage/quiz4_img.png";
+import img5 from "../QuizPage/quiz5_img.png";
+import img6 from "../QuizPage/quiz6_img.png";
+
 
 class TopicList extends React.Component{
 	state = {
@@ -14,20 +20,25 @@ class TopicList extends React.Component{
 		},
 		{
 			text: "2. 국가정책",
-			link: 2
+			link: 2,
+			image: img2,
 		},
 		{
 			text: "3. 사회/IT과학",
-			link: 3
+			link: 3,
+			image: img3,
 		},{
 			text: "4. IT과학 분야 정치인 발언",
-			link: 4
+			link: 4,
+			image: img4,
 		},{
 			text: "5. 사회/경제",
-			link: 5
+			link: 5,
+			image: img5,
 		},{
 			text: "6. 국제/환경",
-			link: 6
+			link: 6,
+			image: img6,
 		}]
 	}
 
