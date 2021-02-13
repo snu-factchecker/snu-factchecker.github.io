@@ -217,8 +217,10 @@
 		display:grid;
 		grid-template-rows: 200px auto;
 		.factmeter{
-			width: 80%;
+
 			margin: 0 auto;
+			padding: 0 10%;
+			max-width: 250px;
 			#gauge{
 				width: 100%;
 			}
@@ -229,7 +231,8 @@
 			}
 		}
 		#factmeter{
-			width: 80%;
+			margin: 0 auto;
+			padding: 0 10%;
 			max-width: 250px;
 			margin: 0 auto;
 			#gauge{
@@ -296,12 +299,15 @@
 		border-radius: 5px;
 		width: 200px;
 		height: 40px;
+		background-color: #969696;
+		color: white;
+		font-weight: 700;
 		&:hover{
-			background-color: #969696;
+			background-color: #696969;
 			transition: background-color 0.3s ease-in-out;
-			&:disabled{
-				background-color: rgb(239, 239, 239);
-			}
+		}
+		&:disabled{
+			background-color: rgb(239, 239, 239);
 		}
 	}
 }

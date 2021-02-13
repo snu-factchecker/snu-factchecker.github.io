@@ -222,7 +222,7 @@ switch(this.state.tutorialStep){
 		break;
 	case 1:
 		overlay = <div className="App">
-			<div></div>
+			
 			<div id="main">
 				<div id="quiz">
 					<div id="quiz-header"></div>
@@ -243,7 +243,7 @@ switch(this.state.tutorialStep){
 		break;
 	case 2:
 		overlay = <div className="App">
-			<div></div>
+			
 			<div id="main">
 				<div id="quiz">
 					<div id="quiz-header"></div>
@@ -263,7 +263,7 @@ switch(this.state.tutorialStep){
 		break;
 	case 3:
 		overlay = <div className="App">
-			<div></div>
+			
 			<div id="main">
 				<div id="quiz">
 					<div id="quiz-header"></div>
@@ -300,7 +300,7 @@ switch(this.state.tutorialStep){
 		break;
 	case 4:
 		overlay = <div className="App">
-			<div></div>
+			
 			<div id="main">
 				<div id="quiz">
 					<div id="quiz-header"></div>
@@ -336,7 +336,6 @@ switch(this.state.tutorialStep){
 		break;
 	case 5:
 		overlay = <div className="App">
-			<div></div>
 			<div id="main">
 				<div id="quiz">
 					<div id="quiz-header"></div>
@@ -373,7 +372,6 @@ switch(this.state.tutorialStep){
 		break;
 	case 6:
 		overlay = <div className="App">
-			<div></div>
 			<div id="main">
 				<div id="quiz">
 					<div id="quiz-header"></div>
@@ -411,7 +409,7 @@ switch(this.state.tutorialStep){
 		break;
 	case 7:
 		overlay = <div className="App">
-			<div></div>
+			
 			<div id="main">
 				<div id="quiz">
 					<div id="quiz-header"></div>
@@ -452,7 +450,7 @@ switch(this.state.tutorialStep){
 		break;
 		case 8:
 			overlay = <div className="App">
-			<div></div>
+			
 			<div id="main">
 				<div id="quiz">
 					<div id="quiz-header"></div>

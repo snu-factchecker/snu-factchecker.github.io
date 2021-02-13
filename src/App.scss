@@ -1,13 +1,8 @@
 .App {
   text-align: center;
-
   font-family: "Noto Sans KR", "sans-serif";
   word-break: keep-all;
-
-  
-  display:grid;
-  grid-template-columns: 300px 1fr;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
 
   #guide{
@@ -29,11 +24,13 @@
 
   #main{
     padding: 30px 20px ;
+    height: 100vh;
   }
 
   footer{
     position: fixed;
     bottom: 20px;
+    left: 20px;
     color: white;
   }
 }
