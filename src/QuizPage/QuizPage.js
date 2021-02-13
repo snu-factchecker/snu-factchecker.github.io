@@ -143,11 +143,11 @@ class QuizPage extends React.Component{
 
 	render(){
 		const keywords= this.state.keywordsCollected.map((item)=>{
-			return <div key={item} onClick={()=> this.searchKeyword(item)} className="keyword">{item}</div>
+			return <div key={item} onClick={()=> this.searchKeyword(item)} className="keyword">- {item}</div>
 		})
 
 		const clues = this.state.cluesCollected.map((item)=>{
-			return <div key={item}>{item}</div>
+			return <div key={item}>- {item}</div>
 		})
 
 

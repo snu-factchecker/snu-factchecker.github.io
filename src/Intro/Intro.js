@@ -30,6 +30,7 @@ class Intro extends React.Component{
 			<button onClick={() => this.PlayGame()}>게임 시작하기</button>
 			<button onClick={() => this.gameGuide()}>도움말</button>
 
+			<footer>© SNU 팩트체크센터</footer>
 		</div>)
 	}
 }

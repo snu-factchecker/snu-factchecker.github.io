@@ -17,6 +17,8 @@ class Help extends React.Component{
 
 	render() {
 		return(<div id="help">
+			<div id="header-title">게임 플레이 안내</div>
+
 			<div>팩트체커가 되어 여러 기사와 인터넷 게시글의 팩트 여부를 검증해 봅시다!</div>
 			<strong>1. 데이터 관찰 단계</strong>
 			<br/>
@@ -38,7 +40,7 @@ class Help extends React.Component{
 
 			<button onClick={() => this.playTutorial()}>튜토리얼 진행하기</button>
 			<button onClick={() => this.PlayGame()}>게임 시작하기</button>
-
+			<footer>© SNU 팩트체크센터</footer>
 		</div>)
 	}
 }

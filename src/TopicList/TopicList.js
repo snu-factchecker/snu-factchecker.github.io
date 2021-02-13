@@ -50,13 +50,16 @@ class TopicList extends React.Component{
         });
 
 		return(<div id="topic">
+			<div id="header-title">주제 선택하기</div>
 			<div id="inner">
+			
 			<div>총 여섯 개 주제에 대한 팩트체크 게임을 시작합니다. <br/>
 			1부터 6까지 순서대로 클릭해 플레이하세요. 모두 완료 후 설문에 응해주시면 게임 플레이가 완료됩니다.</div>
 			<div id="topic-list">
 				{topics}
 			</div>
 			</div>
+			<footer>© SNU 팩트체크센터</footer>
 		</div>)
 	}
 

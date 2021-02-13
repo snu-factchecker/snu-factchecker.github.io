@@ -53,6 +53,7 @@
 
 		.notebook-content{
 			background-color: white;
+			background-size: cover;
 			padding: 10px 40px;
 			border: 1px gray solid;
 			width: fit-content;
@@ -103,6 +104,7 @@
 		min-height: 480px;
 		align-self: stretch;
 		overflow-y: scroll;
+		overflow-x: hidden;
 
 		#quizitem-title{
 			font-weight: 700;
@@ -164,6 +166,7 @@
 
 		#searchresults{
 			overflow-y: scroll;
+			overflow-x: hidden;
 
 			.search-result{
 				//max-height: 200px;
@@ -189,6 +192,7 @@
 
 				.item-content{
 					overflow-y: scroll;
+					overflow-x: hidden;
 					height: fit-content;
 					max-height: 1000px;
 					transition: all 0.5s ease-in-out;
@@ -253,7 +257,8 @@
 		justify-self: stretch;
 
 		background-color: rgb(255, 207, 87);
-
+		background-image: url(./notebook.png);
+		background-position-x: center;
 		display:grid;
 		grid-template-rows: 8% 50% 30%;
 		row-gap: 5%;
@@ -263,9 +268,13 @@
 		}
 
 		.values{
-			background-color: white;
+			//background-color: white;
 			padding: 0 10px;
 			overflow-y: scroll;
+			overflow-x: hidden;
+			div{
+				margin-left: 15px;
+			}
 		}
 		.notebook-title{
 			font-weight: 700;
