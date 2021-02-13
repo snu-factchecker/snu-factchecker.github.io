@@ -221,7 +221,7 @@ switch(this.state.tutorialStep){
 		</div>
 		break;
 	case 1:
-		overlay = <div className="App">
+		overlay = <div><div className="App">
 			
 			<div id="main">
 				<div id="quiz">
@@ -235,6 +235,7 @@ switch(this.state.tutorialStep){
 						<div id="source">출처: DC인사이드 우한 마이너 갤러리</div>
 					</div>
 				</div>
+			</div>
 			</div>
 			<div className="overlay-innertext">첫 단계에서는 팩트체크할 내용을 관찰하고, 여기에서 힌트를 찾게 됩니다. 중앙 왼쪽에 있는 칸에는 팩트체크의 대상이 되는 내용이 제공되어 있습니다. 내용을 잘 살펴보고, 중요한 키워드나 팩트체크를 하는 데 있어 힌트가 될 만한 내용을 찾아내야 합니다.</div>
 			<button className="overlay-skipButton" onClick={()=>this.PlayGame()}>튜토리얼 스킵하기</button>
