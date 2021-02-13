@@ -4,7 +4,7 @@ import "./Intro.scss"
 
 class Intro extends React.Component{
 	PlayGame = () =>{
-		this.props.history.push("/topics")
+		this.props.history.push("/tutorial")
 	}
 
 	gameGuide = () =>{

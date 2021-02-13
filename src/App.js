@@ -14,6 +14,7 @@ import QuizPage3 from './QuizPage/Quiz3';
 import QuizPage4 from './QuizPage/Quiz4';
 import QuizPage5 from './QuizPage/Quiz5';
 import QuizPage6 from './QuizPage/Quiz6';
+import Tutorial from './Tutorial/Tutorial';
 
 class App extends React.Component {
   render(){
@@ -45,6 +46,7 @@ class App extends React.Component {
             <Route path="/topic/4" exact component={QuizPage4} />
             <Route path="/topic/5" exact component={QuizPage5} />
             <Route path="/topic/6" exact component={QuizPage6} />
+            <Route path="/tutorial" exact component={Tutorial} />
             <Redirect exact to="/"/>
           </Switch>
         </ConnectedRouter>
