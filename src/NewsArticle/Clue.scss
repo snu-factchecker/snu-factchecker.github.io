@@ -1,16 +1,17 @@
-.clue{
+.clue {
 	//position: relative;
 	cursor: pointer;
 	display: inline-block;
-	.clue-tooltip{
+	margin: 0 4px;
+	.clue-tooltip {
 		display: none;
 		position: absolute;
 		padding: 10px;
 	}
-	&:hover{
+	&:hover {
 		color: red !important;
 
-		.clue-tooltip{
+		.clue-tooltip {
 			display: block;
 			max-width: 500px;
 			background-color: rgba($color: #000000, $alpha: 0.8);
