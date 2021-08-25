@@ -5,7 +5,7 @@ import GaugeChart from "react-gauge-chart";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
-import quiz1 from "./quiz1_img.png";
+import quiz5 from "./quiz5.png";
 
 import "./QuizPage.scss";
 
@@ -315,7 +315,7 @@ class QuizPage5 extends React.Component {
 				)}
 				{this.state.currentStep === 0 ? (
 					<div className="quizContent" id="quiz1">
-						<div id="quizitem-title">
+						<div id="quizitem-title" style={{ display: "flex", alignItems: "center" }}>
 							<Clue
 								tooltip="한국인 70%가 코로나 항체를 이미 가지고 있다고?"
 								onClick={() => {
@@ -325,8 +325,6 @@ class QuizPage5 extends React.Component {
 								한국인 10명 중 7명은 코로나 항체
 							</Clue>{" "}
 							있다
-						</div>
-						<div id="quizitem-author">
 							<Clue
 								tooltip="연합뉴스는 공신력 있는 언론사 중 하나야."
 								onClick={() => {
@@ -334,11 +332,22 @@ class QuizPage5 extends React.Component {
 									this.setFactScore(10);
 								}}
 							>
-								연합뉴스 배준용 기자
+								<img
+									src="https://news.imaeil.com/inc/photos/2020/03/10/2020031019075094251_l.jpg"
+									style={{ width: "100px", marginLeft: "20px" }}
+								></img>
 							</Clue>
+						</div>
+						<div id="quizitem-author">
+							기사입력 2021.06.02 오후 01:21
+							<br />
+							연합뉴스 배준용 기자
 						</div>
 
 						<div id="quizitem-content">
+							<br />
+							<img src={quiz5} style={{ width: "70%", margin: "0 auto" }} />
+							<br />
 							<Clue
 								tooltip="서울대학교 연구팀의 연구 결과로군."
 								onClick={() => {
@@ -350,28 +359,42 @@ class QuizPage5 extends React.Component {
 								사태가 발생하기 전 일반인 13명의 데이터를 분석해보니 이 중 10명은
 								코로나에 걸리지 않았는데도 코로나 환자들과 동일한 면역세포를 가지고
 								있는 것으로 확인됐습니다.
-							</Clue>{" "}
+							</Clue>
+							<br />
+							<br />
 							또한, 연구팀이 코로나 사태가 발생하기 전 미국에서 수집된 미국인 10명의
 							데이터를 분석해보니 이 환자들과 동일한 면역세포를 가진 사람이 6명
 							나왔다고 합니다.
+							<br />
 							<br />
 							논문 공동 저자인 정준호 교수는 "단순 수치로 보면 한국인은 약 70% 이상,
 							미국인은 60%에서 코로나에 대항하는 항체를 만드는 동일한 면역세포를
 							가지고 있었다는 것"이라며 "인류 중 상당수가 코로나가 발생하기 전에 이미
 							코로나에 대항할 수 있는 면역세포를 가지고 있었다는 추정을 조심스럽게 해
 							볼 수 있다"고 말했습니다.
+							<br />
 							<br />정 교수는 "이번 연구로 인류 중 상당수가 코로나에 대항하는 항체를
 							만들 능력을 이미 갖고 있기 때문에 치명률이 낮은 게 아닌가 하는 추론을
-							해볼 수 있게 된 것"이라고 말했습니다.{" "}
+							해볼 수 있게 된 것"이라고 말했습니다.
 							<Clue
 								tooltip="자료의 출처가 있네. 검색해봐야겠다."
 								onClick={() => {
 									this.onClickClue("근거자료의 구체적 제시");
 								}}
 							>
-								해당 연구 논문은 세계적인 중개의학 학술지 트랜스레셔널 메디시
+								해당 연구 논문은 세계적인 중개의학 학술지 트랜스레셔널 메디신
 								(Science Translational Medicine)에 실렸습니다.
 							</Clue>
+							<br />
+							<br />
+							▶▶ 배준용 기자
+							<br />
+							사회정책부 기자입니다. 코로나19, 의료 이슈를 취재하고 있습니다
+							<br />
+							<br />
+							{"<저작권자(c) 연합뉴스>"}
+							<br />
+							<br />
 							<div>출처: 연합뉴스</div>
 						</div>
 					</div>

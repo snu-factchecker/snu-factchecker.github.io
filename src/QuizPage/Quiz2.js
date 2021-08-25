@@ -321,7 +321,7 @@ class QuizPage2 extends React.Component {
 							<img id="quizitem-image" src={quiz2} alt="article supplement" />
 							<Clue
 								tooltip="책 판매권수에 대한 이 자료가 근거가 되나? 자세히 보면 판매권수가 모두 줄어들은 것만도 아니네??"
-								onClick={() => this.onClickClue("제시된 자료와 주장의 연관성")}
+								onClick={() => this.onClickClue("제시된 자료와 주장의 연관성 없음")}
 								innerText="▶ 사진출처: 주간경향, 독서의 양극화 '분해 격차' 커진다_ 박은하 기자 (2016.11.08)"
 							></Clue>
 							<br />
