@@ -27,6 +27,9 @@ class QuizPage5 extends React.Component {
 	};
 
 	proceedStep = () => {
+		if (this.state.currentStep===1){
+			window.alert("팩트체크 완료! 완료 버튼을 누르시고 간단한 설문에 응하시면 됩니다. 꼭 응답해주세요.")
+		}
 		this.setState({ currentStep: this.state.currentStep + 1 });
 	};
 
@@ -35,6 +38,7 @@ class QuizPage5 extends React.Component {
 	};
 
 	returnToTopics = () => {
+		window.open("https://forms.gle/JC5eYqiokYXfMeKN6");
 		this.props.history.push("/topics");
 	};
 
