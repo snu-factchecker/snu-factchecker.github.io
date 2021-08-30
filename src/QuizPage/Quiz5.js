@@ -38,8 +38,8 @@ class QuizPage5 extends React.Component {
 	};
 
 	returnToTopics = () => {
-		window.open("https://forms.gle/JC5eYqiokYXfMeKN6");
-		this.props.history.push("/topics");
+		// window.open("https://forms.gle/JC5eYqiokYXfMeKN6");
+		this.props.history.push("/end");
 	};
 
 	formatGaugeValue = (value) => {

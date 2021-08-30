@@ -15,6 +15,8 @@ import QuizPage4 from "./QuizPage/Quiz4";
 import QuizPage5 from "./QuizPage/Quiz5";
 import Tutorial from "./Tutorial/Tutorial";
 
+import Finished from "./TopicList/Finished";
+
 import texture from "./Intro/corkboard.jpg";
 
 class App extends React.Component {
@@ -33,6 +35,7 @@ class App extends React.Component {
 							<Route path="/topic/4" exact component={QuizPage4} />
 							<Route path="/topic/5" exact component={QuizPage5} />
 							<Route path="/tutorial" exact component={Tutorial} />
+							<Route path="/end" exact component={Finished} />
 							<Redirect exact to="/" />
 						</Switch>
 					</ConnectedRouter>
