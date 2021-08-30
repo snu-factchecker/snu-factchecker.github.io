@@ -7,7 +7,7 @@ class Finished extends React.Component {
 
 		return (
 			<div id="topic">
-				<div id="header-title">주제 선택하기</div>
+				<div id="header-title">게임 플레이 완료</div>
 				<div id="inner">
 					<div>
 					<p>Facts, Please 게임을 완수해주셔서 감사합니다! <br/>
