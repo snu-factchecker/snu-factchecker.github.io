@@ -182,15 +182,8 @@ class QuizPage5 extends React.Component {
 							중화항체를 형성했다고 합니다.
 						</div>
 						<div className="sourceBox">
-							<Clue
-								innerText="구글 고객센터 |"
-								tooltip="가장 정확한 기준은 해당 기업의 고객센터 글에서 확인할 수 있어."
-								className="item-source"
-								onClick={() => {
-									this.onClickClue("기업에서 공개한 가이드라인");
-								}}
-							></Clue>
-							<div className="item-date">2020.03.08</div>
+							<div className="item-source">조선일보 | </div>
+							<div className="item-date">2021.06.09</div>
 						</div>
 
 						<div
