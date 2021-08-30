@@ -31,7 +31,6 @@ class Finished extends React.Component {
 						(문자/메일에 설문지 A인지, B인지 확인!!, 잘못 응답시 게임 참여 결과에 오류가 발생합니다.)
 					</p>
 					</div>
-					<div id="topic-list">{topics}</div>
 				</div>
 				<footer>© SNU 팩트체크센터</footer>
 			</div>
