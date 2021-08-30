@@ -7,7 +7,7 @@ import img1 from "../QuizPage/quiz1_img.png";
 import img2 from "../QuizPage/quiz2.jpeg";
 import img3 from "../QuizPage/quiz3_img.png";
 import img4 from "../QuizPage/quiz4_img.png";
-import img5 from "../QuizPage/quiz5_img.png";
+import img5 from "../QuizPage/quiz5.png";
 
 class TopicList extends React.Component {
 	state = {
