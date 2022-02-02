@@ -11,7 +11,10 @@ class Topic extends React.Component{
 			<div className="topic-preview" onClick={()=>this.moveToTopic(this.props.link)} >
 				<div className="topic-img" style={{backgroundImage: `url(${this.props.image})`, backgroundSize:"cover"}}>
 				</div>
-				<div className="topic-text">{this.props.text}</div>
+				<div className="topic-text">
+					<div>{this.props.text}</div>
+					<div className="topic-aux">토픽: {this.props.topic}</div>
+				</div>
 			</div>
 		)
 	}

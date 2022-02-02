@@ -1,6 +1,7 @@
 #topic-list{
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	// grid-template-columns: 1fr 1fr 1fr;
 	margin-top: 50px;
 	.topic-preview{
@@ -19,6 +20,11 @@
 		}
 		.topic-text{
 			margin-left: 20px;
+			font-size: 20px;
+			.topic-aux{
+				font-size: 14px;
+				color: grey;
+			}
 		}	
 	}
 }

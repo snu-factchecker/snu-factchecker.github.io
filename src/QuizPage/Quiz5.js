@@ -410,7 +410,7 @@ class QuizPage5 extends React.Component {
 							</div>
 						</div>
 						<div id="notebook">
-							<div id="title">탐사 노트</div>
+							<div id="title">팩트체크 노트</div>
 							<div id="characteristics" className="values">
 								<div id="char-title" className="notebook-title">
 									정보의 특징
