@@ -19,25 +19,25 @@ class TopicList extends React.Component {
 				image: img1,
 			},
 			{
-				text: "2. 한국인 문해력 OECD 국가 중 최하위 수준!",
+				text: "한국인 문해력 OECD 국가 중 최하위 수준!",
 				topic: "사회/교육",
 				link: 2,
 				image: img2,
 			},
 			{
-				text: "3. 무선이어폰을 쓰면 암에 걸린다?",
+				text: "무선이어폰을 쓰면 암에 걸린다?",
 				topic: "사회/IT과학",
 				link: 3,
 				image: img3,
 			},
 			{
-				text: "4. 유튜브 정책이 우파 크리에이터들을 압박하고 있다!",
+				text: "유튜브 정책이 우파 크리에이터들을 억압하고 있다!",
 				topic: "IT과학/정치인 발언",
 				link: 4,
 				image: img4,
 			},
 			{
-				text: "5. 한국인 70% 이미 코로나 항체 있다?",
+				text: "한국인 70% 이미 코로나 항체 있다?",
 				topic: "과학/보건",
 				link: 5,
 				image: img5,
@@ -47,7 +47,7 @@ class TopicList extends React.Component {
 
 	render() {
 		const topics = this.state.topics.map((item) => {
-			return <Topic link={item.link} text={item.text} key={item.link} image={item.image} />;
+			return <Topic link={item.link} text={item.text} key={item.link} image={item.image} topic={item.topic} />;
 		});
 
 		return (
