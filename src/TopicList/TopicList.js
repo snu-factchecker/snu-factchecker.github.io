@@ -13,27 +13,32 @@ class TopicList extends React.Component {
 	state = {
 		topics: [
 			{
-				text: "1. 국가행사",
+				text: "대통령이 국가행사에서 노마스크?",
+				topic: "국가행사",
 				link: 1,
 				image: img1,
 			},
 			{
-				text: "2. 사회/교육",
+				text: "2. 한국인 문해력 OECD 국가 중 최하위 수준!",
+				topic: "사회/교육",
 				link: 2,
 				image: img2,
 			},
 			{
-				text: "3. 사회/IT과학",
+				text: "3. 무선이어폰을 쓰면 암에 걸린다?",
+				topic: "사회/IT과학",
 				link: 3,
 				image: img3,
 			},
 			{
-				text: "4. IT과학 분야 정치인 발언",
+				text: "4. 유튜브 정책이 우파 크리에이터들을 압박하고 있다!",
+				topic: "IT과학/정치인 발언",
 				link: 4,
 				image: img4,
 			},
 			{
-				text: "5. 과학/보건",
+				text: "5. 한국인 70% 이미 코로나 항체 있다?",
+				topic: "과학/보건",
 				link: 5,
 				image: img5,
 			},
@@ -53,10 +58,12 @@ class TopicList extends React.Component {
 						총 다섯 개 주제에 대한 팩트체크 게임을 시작합니다. <br />
 						1부터 5까지 순서대로 클릭해 플레이하세요. 모두 완료 후 설문에 응해주시면
 						게임 플레이가 완료됩니다.
+						<br/>
+						다섯 번 모두 팩트를 검증하는 데 성공하고 clear 도장을 받으시면, FactCheck 수료증이 제공됩니다.
 					</div>
 					<div id="topic-list">{topics}</div>
 				</div>
-				<footer>© SNU 팩트체크센터</footer>
+				{/* <footer>© SNU 팩트체크센터</footer> */}
 			</div>
 		);
 	}

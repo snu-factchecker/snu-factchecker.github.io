@@ -6,8 +6,12 @@ import note from "./notepaper.png";
 import texture from "./corkboard.jpg"
 
 class Intro extends React.Component{
-	PlayGame = () =>{
+	PlayTutorial = () =>{
 		this.props.history.push("/tutorial")
+	}
+
+	PlayGame = () =>{
+		this.props.history.push("/topics")
 	}
 
 	gameGuide = () =>{
@@ -28,6 +32,7 @@ class Intro extends React.Component{
 					4) 다른 정보를 추가적으로 찾아본다." src={note}></img>
 
 			<button onClick={() => this.PlayGame()}>게임 시작하기</button>
+			<button onClick={() => this.PlayTutorial()}>튜토리얼 진행하기</button>
 			<button onClick={() => this.gameGuide()}>도움말</button>
 
 			<footer>© SNU 팩트체크센터</footer>
