@@ -23,6 +23,11 @@ class QuizSidebar extends React.Component{
                 <div class="quiz-title">1. 국가행사</div>
                 <div class="quiz-stamps">
                     <div class="stamp"></div>
+                    <div class="stamp"></div>
+                    <div class="stamp"></div>
+                    <div class="stamp"></div>
+                    <div class="stamp"></div>
+                    <div class="stamp"></div>
                 </div>
             </div>
 
