@@ -1,3 +1,29 @@
+#sidebar{
+	max-width: 300px;
+	min-width: 200px;
+	width: 30%;
+	background-color: rgb(26, 26, 26);
+	display: flex;
+	flex-direction: column;
+	.quiz-tracker{
+		.quiz-title{
+			font-size: 700;
+			color: white;
+
+		}
+		.quiz-stamps{
+			display: flex;
+			flex-wrap: nowrap;
+			.stamp{
+				width: 20px;
+				height: 20px;
+				margin-left: 8px;
+				background-color: lightgray;
+			}
+		}
+	}
+}
+
 #quiz {
 	display: grid;
 	height: 85vh;

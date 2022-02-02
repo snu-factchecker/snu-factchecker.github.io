@@ -204,92 +204,97 @@ class QuizPage extends React.Component{
 			</div>
 		</div>)
 
-		return(<div id="quiz">
-			{this.state.currentStep === 0?
-			(<div id="quiz-header">
-				<div id="header-title">Step 1: 있는 그대로 받아들이지 않고, 의심스러운 부분 찾기.</div>
-			</div>):(<div id="quiz-header">
-				<div id="header-title">Step 2: 추가적으로 정보를 검색하기</div>
-			</div>)
-			}
-			{this.state.currentStep === 0?
-			(<div className="quizContent" id="quiz1">
-				<div id="quizitem-title">[일반] 문재인 등 <Clue innerText="8.15 행사" tooltip="올해 광복절 행사에서 진행된 일인가 보네." onClick={() => this.onClickKeyword("2020년 광복절 행사")}/>에서 노마스크</div>
-				<div id="quizitem-author"><Clue innerText="101세형 (181.70)" tooltip="누군지 알 수 없는 오픈 커뮤니티 이용자의 글? " onClick={() => this.onClickClue("신뢰할 수 없는 작성자")}/></div>
-				<img id="quizitem-image" src={quiz1} alt="article supplement"/>
-				<div id="quizitem-content">저기 실내죠? <br/>
-				<Clue innerText="실내에서 다닥다닥 붙어서 노 마스크로 미친거죠ㅎㅎ" tooltip="자극적인 메시지.. 무슨 의도가 담겨있는 걸까?" onClick={() => this.onClickClue("자극적인 메시지")}/></div>
-				<Clue id="source" tooltip="신뢰하기 쉽지 않은 커뮤니티 게시글이네?" innerText="출처: DC인사이드 우한 마이너 갤러리" onClick={() => this.onClickClue("오픈 커뮤니티 출처")}/>
-			</div>)
-			:this.state.currentStep === 1?(<div id="searchpage">
-				<div id="searchOverlay">
-					<div id="searchpopUp"></div>
-				</div>
-				<div id="searchbox">
-					<div id="input">{this.state.searchTerm}</div>
-					<FontAwesomeIcon icon={faSearch}></FontAwesomeIcon>
-				</div>
-				{this.state.displayResult?results:(<div/>)}
-			</div>):(null)}
-			
-			{this.state.currentStep <2 ?(<div className="left">
-			<div id="factmeter">
-					<div id="labels"><div style={{color: "red"}}>거짓</div><div style={{color: "#009a00"}}>사실</div></div>
-					<GaugeChart id="gauge" percent={(this.state.factScore + 50) / 100} hideText={true} nrOfLevels={2} colors={["#FF0000","#009a00"]}/>
-					<div>{this.formatGaugeValue(this.state.factScore+50)}</div>
-					<div>총 단서 6개 중 {this.state.cluesCollected.length}개를 찾았습니다.</div>
-				</div>
-				<div id="notebook">
-					<div id="title">팩트체크 노트</div>
-					<div id="characteristics" className="values">
-						<div id="char-title" className="notebook-title">정보의 특징</div>
-						<div>{clues}</div>
+		return(
+			<div id="quiz-wrapper">
+				<div id="quiz-sidebar"></div>
+				<div id="quiz">
+					{this.state.currentStep === 0?
+					(<div id="quiz-header">
+						<div id="header-title">Step 1: 있는 그대로 받아들이지 않고, 의심스러운 부분 찾기.</div>
+					</div>):(<div id="quiz-header">
+						<div id="header-title">Step 2: 추가적으로 정보를 검색하기</div>
+					</div>)
+					}
+					{this.state.currentStep === 0?
+					(<div className="quizContent" id="quiz1">
+						<div id="quizitem-title">[일반] 문재인 등 <Clue innerText="8.15 행사" tooltip="올해 광복절 행사에서 진행된 일인가 보네." onClick={() => this.onClickKeyword("2020년 광복절 행사")}/>에서 노마스크</div>
+						<div id="quizitem-author"><Clue innerText="101세형 (181.70)" tooltip="누군지 알 수 없는 오픈 커뮤니티 이용자의 글? " onClick={() => this.onClickClue("신뢰할 수 없는 작성자")}/></div>
+						<img id="quizitem-image" src={quiz1} alt="article supplement"/>
+						<div id="quizitem-content">저기 실내죠? <br/>
+						<Clue innerText="실내에서 다닥다닥 붙어서 노 마스크로 미친거죠ㅎㅎ" tooltip="자극적인 메시지.. 무슨 의도가 담겨있는 걸까?" onClick={() => this.onClickClue("자극적인 메시지")}/></div>
+						<Clue id="source" tooltip="신뢰하기 쉽지 않은 커뮤니티 게시글이네?" innerText="출처: DC인사이드 우한 마이너 갤러리" onClick={() => this.onClickClue("오픈 커뮤니티 출처")}/>
+					</div>)
+					:this.state.currentStep === 1?(<div id="searchpage">
+						<div id="searchOverlay">
+							<div id="searchpopUp"></div>
+						</div>
+						<div id="searchbox">
+							<div id="input">{this.state.searchTerm}</div>
+							<FontAwesomeIcon icon={faSearch}></FontAwesomeIcon>
+						</div>
+						{this.state.displayResult?results:(<div/>)}
+					</div>):(null)}
+					
+					{this.state.currentStep <2 ?(<div className="left">
+					<div id="factmeter">
+							<div id="labels"><div style={{color: "red"}}>거짓</div><div style={{color: "#009a00"}}>사실</div></div>
+							<GaugeChart id="gauge" percent={(this.state.factScore + 50) / 100} hideText={true} nrOfLevels={2} colors={["#FF0000","#009a00"]}/>
+							<div>{this.formatGaugeValue(this.state.factScore+50)}</div>
+							<div>총 단서 6개 중 {this.state.cluesCollected.length}개를 찾았습니다.</div>
+						</div>
+						<div id="notebook">
+							<div id="title">팩트체크 노트</div>
+							<div id="characteristics" className="values">
+								<div id="char-title" className="notebook-title">정보의 특징</div>
+								<div>{clues}</div>
+							</div>
+							<div id="keywords" className="values">
+								<div id="keyword-title" className="notebook-title">키워드</div>
+								<div>{keywords}</div>
+							</div>
+						</div>
+					</div>):(null)
+					}
+					
+					<div id="buttons">
+						{this.state.currentStep > 0?(<button id="prev-button" onClick={()=>this.revertStep()}>이전 단계</button>):(<div/>)}
+						{this.state.currentStep === 2?<button id="next-button" disabled={!this.state.factScoreChanged} onClick={()=>this.returnToTopics()}>완료</button>:(<div/>)}
+						{this.state.currentStep < 2?<button id="next-button" disabled={!this.state.factScoreChanged && this.state.currentStep===1} onClick={()=>this.proceedStep()}>다음 단계</button>:(<div/>)}
 					</div>
-					<div id="keywords" className="values">
-						<div id="keyword-title" className="notebook-title">키워드</div>
-						<div>{keywords}</div>
-					</div>
+					{this.state.currentStep === 2?(<div id="quiz-result">
+						<div id="result">
+							해당 정보는	
+							<ol>
+								<li>신뢰할 수 있는 사이트, 이용자의 정보가 아니었고 </li>
+								<li>올해 사진이 아니었음</li>
+							</ol>
+							따라서 <span id="spec">전혀 사실이 아님!</span>
+						</div>
+
+						<div id="myresults">
+							<div id="resp">
+								<div className="notebook-title">나의 결과</div>
+								<div id="myresponse">{this.formatGaugeValue(this.state.factScore+50)}</div>
+				<div id="resultcheck">{this.formatGaugeValue(this.state.factScore+50)==="전혀 사실 아님"?(<div>정답과 일치합니다. <br/>성공적으로 팩트체크를 진행하셨습니다.</div>):(<div>결과가 일치하지 않습니다.<br/>단서를 더 찾고 싶다면 이전 단계로 돌아가서 찾아보세요.</div>)}</div>
+							</div>
+							<div>
+								<div className="notebook-title">내가 찾은 단서들</div>
+								<div className="notebook-content">{clues}</div>
+							</div>
+						</div>
+						<div id="clueCount">총 6개의 단서 중 <span id="spec">{clues.length}</span>개의 단서를 찾았습니다.</div>
+						<div>
+							본 퀴즈 내용에 대한 상세한 팩트체크 내용은 
+							SNU팩트체크센터 홈페이지 다음 링크에 있습니다.<br></br>
+							<a href="https://factcheck.snu.ac.kr/v2/facts/2456">https://factcheck.snu.ac.kr/v2/facts/2456</a>
+						</div>
+
+					</div>):(<div>
+
+					</div>)}
 				</div>
-			</div>):(null)
-			}
-			
-			<div id="buttons">
-				{this.state.currentStep > 0?(<button id="prev-button" onClick={()=>this.revertStep()}>이전 단계</button>):(<div/>)}
-				{this.state.currentStep === 2?<button id="next-button" disabled={!this.state.factScoreChanged} onClick={()=>this.returnToTopics()}>완료</button>:(<div/>)}
-				{this.state.currentStep < 2?<button id="next-button" disabled={!this.state.factScoreChanged && this.state.currentStep===1} onClick={()=>this.proceedStep()}>다음 단계</button>:(<div/>)}
 			</div>
-			{this.state.currentStep === 2?(<div id="quiz-result">
-				<div id="result">
-					해당 정보는	
-					<ol>
-						<li>신뢰할 수 있는 사이트, 이용자의 정보가 아니었고 </li>
-						<li>올해 사진이 아니었음</li>
-					</ol>
-					따라서 <span id="spec">전혀 사실이 아님!</span>
-				</div>
-
-				<div id="myresults">
-					<div id="resp">
-						<div className="notebook-title">나의 결과</div>
-						<div id="myresponse">{this.formatGaugeValue(this.state.factScore+50)}</div>
-		<div id="resultcheck">{this.formatGaugeValue(this.state.factScore+50)==="전혀 사실 아님"?(<div>정답과 일치합니다. <br/>성공적으로 팩트체크를 진행하셨습니다.</div>):(<div>결과가 일치하지 않습니다.<br/>단서를 더 찾고 싶다면 이전 단계로 돌아가서 찾아보세요.</div>)}</div>
-					</div>
-					<div>
-						<div className="notebook-title">내가 찾은 단서들</div>
-						<div className="notebook-content">{clues}</div>
-					</div>
-				</div>
-				<div id="clueCount">총 6개의 단서 중 <span id="spec">{clues.length}</span>개의 단서를 찾았습니다.</div>
-				<div>
-					본 퀴즈 내용에 대한 상세한 팩트체크 내용은 
-					SNU팩트체크센터 홈페이지 다음 링크에 있습니다.<br></br>
-					<a href="https://factcheck.snu.ac.kr/v2/facts/2456">https://factcheck.snu.ac.kr/v2/facts/2456</a>
-				</div>
-
-			</div>):(<div>
-
-			</div>)}
-		</div>)
+			)
 	}	
 }
 
