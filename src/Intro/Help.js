@@ -1,9 +1,9 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 
 import "./Intro.scss"
 
 import img1 from "./ref1.png";
-import img2 from "./ref2.png";
 import img3 from "./ref3.png";
 class Help extends React.Component{
 	PlayGame = () =>{
@@ -29,18 +29,17 @@ class Help extends React.Component{
 			<br/><br/>
 			<strong>2. 데이터 검증 단계</strong>
 			<br/>
-			<img src={img2}/>
+			<img src={img3}/>
+			{/* <img src={img2}/> */}
 			<div>1단계에서 찾은 키워드를 클릭하여 검색해 봅니다.</div>
 			<div>검색 결과로 나타난 자료들을 추가적으로 분석하여 힌트를 더 얻고, 정보의 정확성을 판단합니다.</div>
 			<br/><br/>
-			<strong>팩트체크 팁!</strong>
+			{/* <strong>팩트체크 팁!</strong> */}
 			<br/>
-			<img src={img3}/>
-			<div>페이지 상단에 있는 팁을 유심히 읽어 보세요.</div>
 
-			<button onClick={() => this.playTutorial()}>튜토리얼 진행하기</button>
+			{/* <button onClick={() => this.playTutorial()}>튜토리얼 진행하기</button> */}
 			<button onClick={() => this.PlayGame()}>게임 시작하기</button>
-			<footer>© SNU 팩트체크센터</footer>
+			{/* <footer>© SNU 팩트체크센터</footer> */}
 		</div>)
 	}
 }

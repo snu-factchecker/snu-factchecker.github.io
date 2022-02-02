@@ -8,8 +8,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 
-import quiz1 from "./quiz1_img.png"
-
 import "./QuizPage.scss"
 
 import Clue from "../NewsArticle/Clue";
@@ -23,7 +21,7 @@ class QuizPage4 extends React.Component{
 		factScoreChanged:false,
 		tipList: [],
 
-		searchTerm: "찾은 키워드를 클릭하여 검색해보기",
+		searchTerm: "찾은 키워드를 오른쪽 화면에서 클릭하여 검색할 수 있습니다",
 		searchResult: [],
 
 		visibility: [false, false, false],

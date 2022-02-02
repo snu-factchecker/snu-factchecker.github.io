@@ -1,13 +1,13 @@
 #intro, #help{
 	#title{
 		font-weight: 700;
-		font-size: 56px;
-		margin-top: 60px;
+		font-size: 36px;
+		margin-top: 28px;
 		color: white;
 	}
 
 	#introtext{
-		margin: 30px auto;
+		margin: 24px auto;
 		width: 90%;
 		color: white;
 	}
@@ -52,23 +52,36 @@
 		}
 	}
 
+	#board{
+		width: 70%;
+		margin: 0 auto;
+		border: rgb(71, 42, 14) 15px solid;
+		padding: 0px 40px 16px;
+		display: grid;
+		grid-template-columns: auto auto;
+		#buttons{
+			align-self: end;
+			justify-self: end;
+		}	
+	}
 }
 
 #intro{
 	position:absolute;
-	padding: 30px 20px ;
-    height: 90vh;
+    height: 100vh;
 	left: 0;
 	top: 0;
 	width: 100vw;
+	background-color: black
 }
 
 #help{
-	height: 90vh;
+	height: 85vh;
 	overflow-y: scroll;
 	overflow-x: hidden;
-	padding-left:30px;
+	padding:20px;
 	text-align: left;
+	background-color: white;
 	img{
 		max-width: 60%;;
 	}

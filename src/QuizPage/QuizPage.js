@@ -1,6 +1,7 @@
 import React from 'react';
 
 import GaugeChart from 'react-gauge-chart'
+import QuizSidebar from './QuizSidebar.js'
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -23,7 +24,7 @@ class QuizPage extends React.Component{
 		factScoreChanged:false,
 		tipList: [],
 
-		searchTerm: "찾은 키워드를 클릭하여 검색해보기",
+		searchTerm: "찾은 키워드를 오른쪽 화면에서 클릭하여 검색할 수 있습니다",
 		searchResult: [],
 
 		visibility: [false, false, false],
@@ -206,7 +207,7 @@ class QuizPage extends React.Component{
 
 		return(
 			<div id="quiz-wrapper">
-				<div id="quiz-sidebar"></div>
+				<QuizSidebar />
 				<div id="quiz">
 					{this.state.currentStep === 0?
 					(<div id="quiz-header">

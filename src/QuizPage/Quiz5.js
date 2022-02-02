@@ -20,7 +20,7 @@ class QuizPage5 extends React.Component {
 		factScoreChanged: false,
 		tipList: [],
 
-		searchTerm: "찾은 키워드를 클릭하여 검색해보기",
+		searchTerm: "찾은 키워드를 오른쪽 화면에서 클릭하여 검색할 수 있습니다",
 		searchResult: [],
 
 		visibility: [false, false, false],
@@ -304,18 +304,6 @@ class QuizPage5 extends React.Component {
 								한국인 10명 중 7명은 코로나 항체
 							</Clue>{" "}
 							있다
-							<Clue
-								tooltip="연합뉴스는 공신력 있는 언론사 중 하나야."
-								onClick={() => {
-									this.onClickClue("공신력 있는 언론사의 기사");
-									this.setFactScore(10);
-								}}
-							>
-								<img
-									src="https://news.imaeil.com/inc/photos/2020/03/10/2020031019075094251_l.jpg"
-									style={{ width: "100px", marginLeft: "20px" }}
-								></img>
-							</Clue>
 						</div>
 						<div id="quizitem-author">
 							기사입력 2021.06.02 오후 01:21
@@ -325,7 +313,7 @@ class QuizPage5 extends React.Component {
 
 						<div id="quizitem-content">
 							<br />
-							<img src={quiz5} style={{ width: "70%", margin: "0 auto" }} />
+							<img src={quiz5} style={{ width: "70%", margin: "0 auto" }} alt="covid 19" />
 							<br />
 							<Clue
 								tooltip="서울대학교 연구팀의 연구 결과로군."
@@ -374,7 +362,21 @@ class QuizPage5 extends React.Component {
 							{"<저작권자(c) 연합뉴스>"}
 							<br />
 							<br />
-							<div>출처: 연합뉴스</div>
+							<div>출처: 
+							<Clue
+								tooltip="연합뉴스는 공신력 있는 언론사 중 하나야."
+								onClick={() => {
+									this.onClickClue("공신력 있는 언론사의 기사");
+									this.setFactScore(10);
+								}}
+							>
+								<img
+									src="https://news.imaeil.com/inc/photos/2020/03/10/2020031019075094251_l.jpg"
+									style={{ width: "70px", marginLeft: "10px" }}
+									alt="연합뉴스 로고"
+								></img>
+							</Clue>
+							</div>
 						</div>
 					</div>
 				) : this.state.currentStep === 1 ? (
