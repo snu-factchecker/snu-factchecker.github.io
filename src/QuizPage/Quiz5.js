@@ -285,31 +285,13 @@ class QuizPage5 extends React.Component {
 
 		return (
 			<div id="quiz">
-				{this.state.currentStep === 0 ? (
-					<div id="quiz-header">
-						<div id="header-title">Step 1: 온라인상의 정보 의심하기</div>
-						<div id="tip-box">
-							<div id="tip-title">허위정보 분별하기 팁</div>
-							<div id="tip-content">
-								첫째, 있는 그대로 받아들이지 않는다.
-								<br />
-								둘째, 의심스러운 부분이 있는지 검토한다.
-							</div>
-						</div>
-					</div>
-				) : (
-					<div id="quiz-header">
-						<div id="header-title">Step 2: 단서를 기반으로 정보 확인하기</div>
-						<div id="tip-box">
-							<div id="tip-title">허위정보 분별하기 팁</div>
-							<div id="tip-content">
-								첫째, 해당 주장들에 대한 사실여부를 검토해본다.
-								<br />
-								둘째, 간접정보보다는 직접정보를 찾아볼 수 있도록 한다.
-							</div>
-						</div>
-					</div>
-				)}
+				{this.state.currentStep === 0?
+				(<div id="quiz-header">
+					<div id="header-title">Step 1: 있는 그대로 받아들이지 않고, 의심스러운 부분 찾기.</div>
+				</div>):(<div id="quiz-header">
+					<div id="header-title">Step 2: 추가적으로 정보를 검색하기</div>
+				</div>)
+				}
 				{this.state.currentStep === 0 ? (
 					<div className="quizContent" id="quiz1">
 						<div id="quizitem-title" style={{ display: "flex", alignItems: "center" }}>
