@@ -279,8 +279,8 @@ class QuizPage extends React.Component{
 						<div id="myresults">
 							<div id="resp">
 								<div className="notebook-title">나의 결과</div>
+								<GaugeChart id="gauge" percent={(this.state.factScore + 50) / 100} hideText={true} nrOfLevels={2} colors={["#FF0000","#009a00"]}/>
 								<div id="myresponse">{this.formatGaugeValue(this.state.factScore+50)}</div>
-				<div id="resultcheck">{this.formatGaugeValue(this.state.factScore+50)==="전혀 사실 아님"?(<div>정답과 일치합니다. <br/>성공적으로 팩트체크를 진행하셨습니다.</div>):(<div>결과가 일치하지 않습니다.<br/>단서를 더 찾고 싶다면 이전 단계로 돌아가서 찾아보세요.</div>)}</div>
 							</div>
 							<div>
 								<div className="notebook-title">내가 찾은 단서들</div>
@@ -288,6 +288,8 @@ class QuizPage extends React.Component{
 							</div>
 						</div>
 						<div id="clueCount">총 6개의 단서 중 <span id="spec">{clues.length}</span>개의 단서를 찾았습니다.</div>
+						{this.state.cluesCollected.length===6?(null):(<div>팩트체크 수료증 획득을 위해 단서를 더 찾아보시겠습니까?
+							<br/> 이전 단계로 돌아가 단서를 더 찾아보세요.</div>)}
 						<div>
 							본 퀴즈 내용에 대한 상세한 팩트체크 내용은 
 							SNU팩트체크센터 홈페이지 다음 링크에 있습니다.<br></br>

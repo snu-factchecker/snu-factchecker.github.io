@@ -83,7 +83,7 @@
 		background-color: white;
 		min-height: 480px;
 
-		padding-top: 30px;
+		padding-top: 20px;
 
 		display: grid;
 
@@ -112,6 +112,11 @@
 				font-weight: 700;
 				font-size: 24px;
 				color: rgb(25, 148, 0);
+			}
+			#gauge{
+				width: 50%;
+				max-width: 300px;
+				margin: 0 auto;
 			}
 		}
 
