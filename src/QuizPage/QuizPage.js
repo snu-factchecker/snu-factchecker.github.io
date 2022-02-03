@@ -67,10 +67,14 @@ class QuizPage extends React.Component{
 		this.setState({currentStep : this.state.currentStep-1});
 	}
 
-	returnToTopics = ()=>{
+	returnToTopics = (num)=>{
+		this.saveToSessionStorage(num)
 		this.props.history.push("/topics")
 	}
 
+	saveToSessionStorage = (numOfClues) =>{
+		window.sessionStorage.setItem("quiz1_clues", numOfClues)
+	}
 
 	formatGaugeValue = (value) => {
 		if (!this.state.factScoreChanged){
@@ -259,7 +263,7 @@ class QuizPage extends React.Component{
 					
 					<div id="buttons">
 						{this.state.currentStep > 0?(<button id="prev-button" onClick={()=>this.revertStep()}>이전 단계</button>):(<div/>)}
-						{this.state.currentStep === 2?<button id="next-button" disabled={!this.state.factScoreChanged} onClick={()=>this.returnToTopics()}>완료</button>:(<div/>)}
+						{this.state.currentStep === 2?<button id="next-button" disabled={!this.state.factScoreChanged} onClick={()=>this.returnToTopics(clues.length)}>완료</button>:(<div/>)}
 						{this.state.currentStep < 2?<button id="next-button" disabled={!this.state.factScoreChanged && this.state.currentStep===1} onClick={()=>this.proceedStep()}>다음 단계</button>:(<div/>)}
 					</div>
 					{this.state.currentStep === 2?(<div id="quiz-result">

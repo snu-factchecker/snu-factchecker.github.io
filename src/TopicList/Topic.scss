@@ -16,7 +16,7 @@
 		border-top: 1px solid gray;
 		border-bottom: 1px solid gray;
 		display: grid;
-		grid-template-columns: 150px 1fr;
+		grid-template-columns: 150px 1fr 100px;
 		.topic-img{
 			place-self: stretch;
 		}
@@ -30,7 +30,11 @@
 				color: grey;
 				font-weight: 400;
 			}
-		}	
+		}
+		.topic-stamp{
+			width: 100px;
+			height: 100px;
+		}
 	}
 }
 

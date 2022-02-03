@@ -46,21 +46,47 @@ class TopicList extends React.Component {
 	};
 
 	render() {
+		let answers = [6 ,5, 5, 7, 6];
+		let allcleared = window.sessionStorage.getItem("quiz1_clues") == answers[0] && 
+		window.sessionStorage.getItem("quiz2_clues") == answers[1] &&
+		window.sessionStorage.getItem("quiz3_clues") == answers[2] &&
+		window.sessionStorage.getItem("quiz4_clues") == answers[3] &&
+		window.sessionStorage.getItem("quiz5_clues") == answers[4]; 
 		const topics = this.state.topics.map((item) => {
-			return <Topic link={item.link} text={item.text} key={item.link} image={item.image} topic={item.topic} />;
+			let cleared = false;
+
+			if (item.link === 1){
+				cleared = window.sessionStorage.getItem("quiz1_clues") == answers[0];
+			} else if (item.link === 2){
+				cleared = window.sessionStorage.getItem("quiz2_clues") == answers[1];
+			} else if (item.link === 3){
+				cleared = window.sessionStorage.getItem("quiz3_clues") == answers[2];
+			} else if (item.link === 4){
+				cleared = window.sessionStorage.getItem("quiz4_clues") == answers[3];
+			} else {
+				cleared = window.sessionStorage.getItem("quiz5_clues") == answers[4];
+			}
+
+			return <Topic link={item.link} text={item.text} key={item.link} image={item.image} topic={item.topic} cleared={cleared} />;
 		});
 
 		return (
 			<div id="topic">
 				<div id="header-title">주제 선택하기</div>
 				<div id="inner">
-					<div>
+					{!allcleared?
+					(<div>
 						총 다섯 개 주제에 대한 팩트체크 게임을 시작합니다. <br />
 						1부터 5까지 순서대로 클릭해 플레이하세요. 모두 완료 후 설문에 응해주시면
 						게임 플레이가 완료됩니다.
 						<br/>
 						다섯 번 모두 팩트를 검증하는 데 성공하고 clear 도장을 받으시면, FactCheck 수료증이 제공됩니다.
-					</div>
+					</div>):(
+					<div>모든 레벨을 성공적으로 끝마쳤습니다!
+						<br/>
+						아래 링크를 통해 팩트체크 수료증을 발급받으세요.
+						<button>수료증 발급받기</button>
+					</div>)}
 					<div id="topic-list">{topics}</div>
 				</div>
 				{/* <footer>© SNU 팩트체크센터</footer> */}

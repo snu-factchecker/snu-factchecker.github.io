@@ -1,6 +1,7 @@
 import React from 'react';
 
 import GaugeChart from 'react-gauge-chart'
+import QuizSidebar from './QuizSidebar.js'
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -35,8 +36,13 @@ class QuizPage4 extends React.Component{
 		this.setState({currentStep : this.state.currentStep-1});
 	}
 
-	returnToTopics = ()=>{
+	returnToTopics = (num)=>{
+		this.saveToSessionStorage(num)
 		this.props.history.push("/topics")
+	}
+
+	saveToSessionStorage = (numOfClues) =>{
+		window.sessionStorage.setItem("quiz4_clues", numOfClues)
 	}
 
 
@@ -232,7 +238,10 @@ class QuizPage4 extends React.Component{
 
 		</div>)
 
-		return(<div id="quiz">
+		return(
+			<div id="quiz-wrapper">
+			<QuizSidebar />
+		<div id="quiz">
 			{this.state.currentStep === 0?
 				(<div id="quiz-header">
 					<div id="header-title">Step 1: 있는 그대로 받아들이지 않고, 의심스러운 부분 찾기.</div>
@@ -289,7 +298,7 @@ class QuizPage4 extends React.Component{
 			
 			<div id="buttons">
 				{this.state.currentStep > 0?(<button id="prev-button" onClick={()=>this.revertStep()}>이전 단계</button>):(<div/>)}
-				{this.state.currentStep === 2?<button id="next-button" disabled={!this.state.factScoreChanged} onClick={()=>this.returnToTopics()}>완료</button>:(<div/>)}
+				{this.state.currentStep === 2?<button id="next-button" disabled={!this.state.factScoreChanged} onClick={()=>this.returnToTopics(clues.length)}>완료</button>:(<div/>)}
 				{this.state.currentStep < 2?<button id="next-button" disabled={!this.state.factScoreChanged && this.state.currentStep===1} onClick={()=>this.proceedStep()}>다음 단계</button>:(<div/>)}
 			</div>
 			{this.state.currentStep === 2?(<div id="quiz-result">
@@ -327,7 +336,8 @@ class QuizPage4 extends React.Component{
 			</div>):(<div>
 
 			</div>)}
-		</div>)
+		</div>
+	</div>)
 	}	
 }
 

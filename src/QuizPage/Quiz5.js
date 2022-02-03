@@ -1,6 +1,7 @@
 import React from "react";
 
 import GaugeChart from "react-gauge-chart";
+import QuizSidebar from './QuizSidebar.js'
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
@@ -27,9 +28,9 @@ class QuizPage5 extends React.Component {
 	};
 
 	proceedStep = () => {
-		if (this.state.currentStep===1){
-			window.alert("팩트체크 완료! 완료 버튼을 누르시고 간단한 설문에 응하시면 됩니다. 꼭 응답해주세요.")
-		}
+		// if (this.state.currentStep===1){
+		// 	window.alert("팩트체크 완료! 완료 버튼을 누르시고 간단한 설문에 응하시면 됩니다. 꼭 응답해주세요.")
+		// }
 		this.setState({ currentStep: this.state.currentStep + 1 });
 	};
 
@@ -37,10 +38,14 @@ class QuizPage5 extends React.Component {
 		this.setState({ currentStep: this.state.currentStep - 1 });
 	};
 
-	returnToTopics = () => {
-		// window.open("https://forms.gle/JC5eYqiokYXfMeKN6");
-		this.props.history.push("/end");
-	};
+	returnToTopics = (num)=>{
+		this.saveToSessionStorage(num)
+		this.props.history.push("/topics")
+	}
+
+	saveToSessionStorage = (numOfClues) =>{
+		window.sessionStorage.setItem("quiz5_clues", numOfClues)
+	}
 
 	formatGaugeValue = (value) => {
 		if (!this.state.factScoreChanged) {
@@ -284,6 +289,8 @@ class QuizPage5 extends React.Component {
 		);
 
 		return (
+			<div id="quiz-wrapper">
+				<QuizSidebar />
 			<div id="quiz">
 				{this.state.currentStep === 0?
 				(<div id="quiz-header">
@@ -441,7 +448,7 @@ class QuizPage5 extends React.Component {
 						<button
 							id="next-button"
 							disabled={!this.state.factScoreChanged}
-							onClick={() => this.returnToTopics()}
+							onClick={() => this.returnToTopics(clues.length)}
 						>
 							완료
 						</button>
@@ -511,6 +518,7 @@ class QuizPage5 extends React.Component {
 				) : (
 					<div></div>
 				)}
+			</div>
 			</div>
 		);
 	}

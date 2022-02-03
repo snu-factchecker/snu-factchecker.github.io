@@ -11,22 +11,22 @@ class Clue extends React.Component {
 
 	render() {
 		return (
-			<div
+			<span
 				className={`clue ${this.props.className}`}
 				id={this.props.id}
 				onClick={this.props.onClick}
 				onMouseMove={this._onMouseMove.bind(this)}
 			>
-				<div className="clue-text">
+				<span className="clue-text">
 					{this.props.innerText} {this.props.children}
-				</div>
+				</span>
 				<div
 					className="clue-tooltip"
 					style={{ top: this.state.y - 60, left: this.state.x - 40 }}
 				>
 					{this.props.tooltip}
 				</div>
-			</div>
+			</span>
 		);
 	}
 }

@@ -1,6 +1,7 @@
-import React, { isValidElement } from "react";
+import React from "react";
 
 import GaugeChart from "react-gauge-chart";
+import QuizSidebar from './QuizSidebar.js'
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
@@ -39,9 +40,14 @@ class QuizPage2 extends React.Component {
 		this.setState({ currentStep: this.state.currentStep - 1 });
 	};
 
-	returnToTopics = () => {
-		this.props.history.push("/topics");
-	};
+	returnToTopics = (num)=>{
+		this.saveToSessionStorage(num)
+		this.props.history.push("/topics")
+	}
+
+	saveToSessionStorage = (numOfClues) =>{
+		window.sessionStorage.setItem("quiz2_clues", numOfClues)
+	}
 
 	formatGaugeValue = (value) => {
 		if (!this.state.factScoreChanged) {
@@ -256,6 +262,8 @@ class QuizPage2 extends React.Component {
 		);
 
 		return (
+			<div id="quiz-wrapper">
+				<QuizSidebar />
 			<div id="quiz">
 				{this.state.currentStep === 0?
 				(<div id="quiz-header">
@@ -390,7 +398,7 @@ class QuizPage2 extends React.Component {
 						<button
 							id="next-button"
 							disabled={!this.state.factScoreChanged}
-							onClick={() => this.returnToTopics()}
+							onClick={() => this.returnToTopics(clues.length)}
 						>
 							완료
 						</button>
@@ -463,6 +471,7 @@ class QuizPage2 extends React.Component {
 				) : (
 					<div></div>
 				)}
+			</div>
 			</div>
 		);
 	}

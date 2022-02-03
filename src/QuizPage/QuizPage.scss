@@ -36,7 +36,6 @@
 				font-size: 10px;
 				padding: 0 2px 2px;
 				margin-left: 8px;
-				display:none;
 			}
 		}
 		.quiz-stamps{
@@ -55,7 +54,7 @@
 				div{
 					position: relative;
 					top: -2px;
-					display:none; 
+					//display:none; 
 					// change display with code
 				}
 			}
@@ -173,7 +172,7 @@
 		align-self: stretch;
 		overflow-y: auto;
 		overflow-x: hidden;
-		word-break: break-all;
+		word-break: keep-all;
 
 		#quizitem-title {
 			font-weight: 700;
