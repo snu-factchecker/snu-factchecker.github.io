@@ -165,6 +165,7 @@ class QuizPage3 extends React.Component {
 								frameborder="0"
 								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 								allowfullscreen
+								title="video"
 							></iframe>
 							<div>
 								<p>

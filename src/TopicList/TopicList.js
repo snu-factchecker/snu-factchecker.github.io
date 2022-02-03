@@ -46,6 +46,10 @@ class TopicList extends React.Component {
 	};
 
 	render() {
+
+		let getCertificate = ()=>{
+			this.props.history.push("/certificate")
+		}
 		let answers = [6 ,5, 5, 7, 6];
 		let allcleared = window.sessionStorage.getItem("quiz1_clues") == answers[0] && 
 		window.sessionStorage.getItem("quiz2_clues") == answers[1] &&
@@ -85,7 +89,7 @@ class TopicList extends React.Component {
 					<div>모든 레벨을 성공적으로 끝마쳤습니다!
 						<br/>
 						아래 링크를 통해 팩트체크 수료증을 발급받으세요.
-						<button>수료증 발급받기</button>
+						<button onClick={()=>getCertificate()}>수료증 발급받기</button>
 					</div>)}
 					<div id="topic-list">{topics}</div>
 				</div>

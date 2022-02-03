@@ -50,6 +50,9 @@
 	overflow: auto;
 	#inner{
 		width: 100%;
+		button{
+			margin: 8px  auto;
+		}
 	}
 	#header-title{
 		font-weight: 700;
@@ -61,4 +64,22 @@
 .emph{
 	font-weight: 700;
 	color: rgb(182, 3, 3);
+}
+
+button {
+	background-image: none;
+	border: none;
+	display: block;
+	cursor: pointer;
+
+	border-radius: 5px;
+	width: 200px;
+	height: 40px;
+	background-color: #969696;
+	color: white;
+	font-weight: 700;
+	&:hover {
+		background-color: #696969;
+		transition: background-color 0.3s ease-in-out;
+	}
 }
