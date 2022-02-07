@@ -271,7 +271,6 @@ class QuizPage3 extends React.Component {
 								필요가 있다.
 							</p>
 							<p>
-								□{" "}
 								<Clue
 									innerText="탈모치료기, 저주파치료기, 전기장판, 전자담배, 전기면도기, 전동칫솔, 블루투스 이어폰, 키즈헤드폰
 등 다양한 인체 밀착 생활제품에서도 전자파 발생량이 모두 인체보호기준 대비 1% 내외로 나타났다"
@@ -543,24 +542,8 @@ class QuizPage3 extends React.Component {
 						<div id="myresults">
 							<div id="resp">
 								<div className="notebook-title">나의 결과</div>
-								<div id="myresponse">
-									{this.formatGaugeValue(this.state.factScore + 50)}
-								</div>
-								<div id="resultcheck">
-									{this.formatGaugeValue(this.state.factScore + 50) ===
-									"전혀 사실 아님" ? (
-										<div>
-											정답과 일치합니다. <br />
-											성공적으로 팩트체크를 진행하셨습니다.
-										</div>
-									) : (
-										<div>
-											결과가 일치하지 않습니다.
-											<br />
-											단서를 더 찾고 싶다면 이전 단계로 돌아가서 찾아보세요.
-										</div>
-									)}
-								</div>
+								<GaugeChart id="gauge" percent={(this.state.factScore + 50) / 100} hideText={true} nrOfLevels={2} colors={["#FF0000","#009a00"]}/>
+								<div id="myresponse">{this.formatGaugeValue(this.state.factScore+50)}</div>
 							</div>
 							<div>
 								<div className="notebook-title">내가 찾은 단서들</div>
