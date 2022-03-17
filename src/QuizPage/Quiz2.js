@@ -74,6 +74,7 @@ class QuizPage2 extends React.Component {
 		}
 		temp.push(clueText);
 		this.setState({ cluesCollected: temp });
+		this.saveToSessionStorage(this.state.cluesCollected.length)
 	};
 
 	// onClickClue = (offset)=>{
@@ -130,9 +131,20 @@ class QuizPage2 extends React.Component {
 			return <div key={item}>{item}</div>;
 		});
 
+		let childarray = [];
+		for (let j = 0 ; j<5; j++){
+			if (j < this.state.cluesCollected.length){
+				childarray.push(React.createElement('div', {className: 'stamp', key: j}, <div>✔︎</div>))
+			} else{
+				childarray.push(React.createElement('div', {className: 'stamp', key: j}, <div>︎</div>))
+			}
+		}
+		let parent = React.createElement('div', {className: 'quiz-stamps'}, childarray);
+
 		const results_1 = (
 			<div id="searchresults">
 				<strong>장소 검색 결과</strong>
+				<br />
 				<br />
 				<Clue
 					tooltip="논술학원이구나.
@@ -417,40 +429,56 @@ class QuizPage2 extends React.Component {
 						<div />
 					)}
 				</div>
-				{this.state.currentStep === 2 ? (
-					<div id="quiz-result">
-						<div id="result">
-							해당 정보는
-							<ol>
-								<li>게시물의 출처는 다소 상업적 의도를 지닌 블로그 글이며,</li>
-								<li>제시된 표는 적절한 근거가 되지 않음.</li>
-								<li>해당 주장을 검색해본 결과, 사실과 다름.</li>
-							</ol>
-							따라서 <span id="spec">전혀 사실이 아님!</span>
-						</div>
-
+				{this.state.currentStep === 2?(<div id="quiz-result">
 						<div id="myresults">
 							<div id="resp">
 								<div className="notebook-title">나의 결과</div>
 								<GaugeChart id="gauge" percent={(this.state.factScore + 50) / 100} hideText={true} nrOfLevels={2} colors={["#FF0000","#009a00"]}/>
 								<div id="myresponse">{this.formatGaugeValue(this.state.factScore+50)}</div>
 							</div>
-							<div>
-								<div className="notebook-title">내가 찾은 단서들</div>
-								<div className="notebook-content">{clues}</div>
+
+							<div id="result">
+								<div className="notebook-title">Professional FactChecker의 판정</div>
+								<div>
+									해당 정보는	
+									<ol>
+										<li>게시물의 출처는 다소 상업적 의도를 지닌 블로그 글이며,</li>
+										<li>제시된 표는 적절한 근거가 되지 않음.</li>
+										<li>해당 주장을 검색해본 결과, 사실과 다름.</li>
+									</ol>
+									따라서 <span id="spec">전혀 사실이 아님!</span>
+
+									<div id="extra">
+										본 퀴즈 내용에 대한 상세한 팩트체크 내용을 확인해 보세요.<br></br>
+										<a href="https://factcheck.snu.ac.kr/v2/facts/2910">
+											https://factcheck.snu.ac.kr/v2/facts/2910
+										</a>
+									</div>
+								</div>
 							</div>
-						</div>
-						<div id="clueCount">
-							총 5개의 단서 중 <span id="spec">{clues.length}</span>개의 단서를
-							찾았습니다.
+							{/* <div>
+								<div className="notebook-title">내가 찾은 단서들</div>
+								<div className="notebook-content">{clues}<ㄴdiv>
+							</div> */}
 						</div>
 						<div>
-							본 퀴즈 내용에 대한 상세한 팩트체크 내용은 SNU팩트체크센터 홈페이지 다음
-							링크에 있습니다.<br></br>
-							<a href="https://factcheck.snu.ac.kr/v2/facts/2910">
-								https://factcheck.snu.ac.kr/v2/facts/2910
-							</a>
+							{this.formatGaugeValue(this.state.factScore+50 === "전혀 사실 아님")?(<div id="match">
+									결과 일치
+									<br/>
+									Excellent!
+								</div>):(
+							<div id="match">
+								일치하지 않음
+								<br/>
+								Needs More Practice!	
+							</div>)}
+							<div id="clueCount">총 5개의 단서 중 <span id="spec">{clues.length}</span>개의 단서를 찾았습니다.</div>
+							{parent}
 						</div>
+						{this.state.cluesCollected.length===5?(null):(<div>
+							팩트체크 수료증 획득을 위해 단서를 더 찾아보시겠습니까?
+							<br/> 이전 단계로 돌아가 단서를 더 찾아보세요.</div>)}
+
 					</div>
 				) : (
 					<div></div>

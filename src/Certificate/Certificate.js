@@ -109,15 +109,15 @@ class Certificate extends React.Component{
                         </div>
                         <img src={stamp} alt="stamp"></img>
                     </div>
-                    <div className="topic-wrapper">
+                    {/* <div className="topic-wrapper">
                         <div className="topic-name">
                             4. IT과학/<br/>정치인 발언
                         </div>
                         <img src={stamp} alt="stamp"></img>
-                    </div>
+                    </div> */}
                     <div className="topic-wrapper">
                         <div className="topic-name">
-                            5. 과학/보건
+                            4. 과학/보건
                         </div>
                         <img src={stamp} alt="stamp"></img>
                     </div>

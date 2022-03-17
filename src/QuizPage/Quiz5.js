@@ -72,6 +72,7 @@ class QuizPage5 extends React.Component {
 		}
 		temp.push(clueText);
 		this.setState({ cluesCollected: temp });
+		this.saveToSessionStorage(this.state.cluesCollected.length)
 	};
 
 	// onClickClue = (offset)=>{
@@ -127,6 +128,17 @@ class QuizPage5 extends React.Component {
 		const clues = this.state.cluesCollected.map((item) => {
 			return <div key={item}>{item}</div>;
 		});
+
+		let childarray = [];
+		for (let j = 0 ; j<6; j++){
+			if (j < this.state.cluesCollected.length){
+				childarray.push(React.createElement('div', {className: 'stamp', key: j}, <div>✔︎</div>))
+			} else{
+				childarray.push(React.createElement('div', {className: 'stamp', key: j}, <div>︎</div>))
+			}
+		}
+		let parent = React.createElement('div', {className: 'quiz-stamps'}, childarray);
+
 
 		const results = (
 			<div id="searchresults">
@@ -467,21 +479,15 @@ class QuizPage5 extends React.Component {
 						<div />
 					)}
 				</div>
-				{this.state.currentStep === 2 ? (
-					<div id="quiz-result">
-						<div id="result">
-							해당 정보는
+				{this.state.currentStep === 2?(<div id="quiz-result">
+						{/* <div id="result">
+							해당 정보는	
 							<ol>
-								<li>해당 정보는 공신력 있는 언론사 기사이며, </li>
-								<li>내용 역시 국제 저널에 실린 연구 결과에 대한 것</li>
-								<li>
-									연구진 역시 코로나19 항체에 대한 연구 결과와 백신 접종의
-									필요성과 결부시켜 오해하는 것을 우려하며 객관적 사실만을
-									강조하고 있음.
-								</li>
+								<li>신뢰할 수 있는 사이트, 이용자의 정보가 아니었고 </li>
+								<li>올해 사진이 아니었음</li>
 							</ol>
-							따라서 <span id="spec">대체로 사실!</span>
-						</div>
+							따라서 <span id="spec">전혀 사실이 아님!</span>
+						</div> */}
 
 						<div id="myresults">
 							<div id="resp">
@@ -489,15 +495,45 @@ class QuizPage5 extends React.Component {
 								<GaugeChart id="gauge" percent={(this.state.factScore + 50) / 100} hideText={true} nrOfLevels={2} colors={["#FF0000","#009a00"]}/>
 								<div id="myresponse">{this.formatGaugeValue(this.state.factScore+50)}</div>
 							</div>
-							<div>
-								<div className="notebook-title">내가 찾은 단서들</div>
-								<div className="notebook-content">{clues}</div>
+
+							<div id="result">
+								<div className="notebook-title">Professional FactChecker의 판정</div>
+								<div>
+									해당 정보는	
+									<ol>
+									<li>해당 정보는 공신력 있는 언론사 기사이며, </li>
+									<li>내용 역시 국제 저널에 실린 연구 결과에 대한 것</li>
+									<li>
+										연구진 역시 코로나19 항체에 대한 연구 결과와 백신 접종의
+										필요성과 결부시켜 오해하는 것을 우려하며 객관적 사실만을
+										강조하고 있음.
+									</li>
+									</ol>
+									따라서 <span id="spec">대체로 사실!</span>
+
+									
+								</div>
 							</div>
+
 						</div>
-						<div id="clueCount">
-							총 6개의 단서 중 <span id="spec">{clues.length}</span>개의 단서를
-							찾았습니다.
+						<div>
+							{this.formatGaugeValue(this.state.factScore+50 === "대체로 사실")?(<div id="match">
+									결과 일치
+									<br/>
+									Excellent!
+								</div>):(
+							<div id="match">
+								일치하지 않음
+								<br/>
+								Needs More Practice!	
+							</div>)}
+							<div id="clueCount">총 6개의 단서 중 <span id="spec">{clues.length}</span>개의 단서를 찾았습니다.</div>
+							{parent}
 						</div>
+						{this.state.cluesCollected.length===6?(null):(<div>
+							팩트체크 수료증 획득을 위해 단서를 더 찾아보시겠습니까?
+							<br/> 이전 단계로 돌아가 단서를 더 찾아보세요.</div>)}
+
 					</div>
 				) : (
 					<div></div>

@@ -77,15 +77,50 @@
 	#quiz-result {
 		grid-column-start: 1;
 		grid-column-end: 3;
-		grid-row: 2;
+		grid-template-rows: 1fr 1fr 1fr;
 		border: 2px gray solid;
 		align-self: stretch;
 		background-color: white;
 		min-height: 480px;
 
-		padding-top: 20px;
+		padding-top: 40px;
 
 		display: grid;
+
+		#extra {
+			margin-top: 16px;
+			font-size: 14px;
+		}
+
+		#match{
+			color:rgb(255, 184, 103);
+			font-weight:700;
+			font-size: 24px;
+			margin: 20px auto;
+		}
+
+		.quiz-stamps{
+			display: flex;
+			justify-content: center;
+			flex-wrap: nowrap;
+			margin: 8px auto;
+			position: relative;
+			left: -8px;
+			.stamp{
+				width: 24px;
+				height: 24px;
+				border-radius: 100%;
+				margin-left: 8px;
+				background-color: lightgray;
+				color: black;
+				div{
+					position: relative;
+					top: px;
+					//display:none; 
+					// change display with code
+				}
+			}
+		}
 
 		#result {
 			ol {
@@ -118,11 +153,12 @@
 				max-width: 300px;
 				margin: 0 auto;
 			}
+
 		}
 
 		.notebook-title {
 			font-weight: 700;
-			margin: 10px 0;
+			margin: 20px 0;
 			color: #666666;
 		}
 
@@ -211,7 +247,8 @@
 		text-align: left;
 		padding: 16px;
 		border: 2px gray solid;
-		background-color: green;
+		border-radius: 8px;
+		background-color: white;
 		min-height: 480px;
 		align-self: stretch;
 		display: grid;
@@ -231,9 +268,11 @@
 
 		#searchbox {
 			border: 1px darkgray solid;
+			//box-shadow: #6666663f 0 8px 8px 2px;
+			border-radius: 20px;
 			background-color: white;
 			align-self: center;
-			padding: 5px;
+			padding: 8px 16px;
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
@@ -246,6 +285,7 @@
 			background-color: white;
 			overflow-y: auto;
 			overflow-x: hidden;
+			padding: 8px;
 
 			.search-result {
 				//max-height: 200px;
@@ -302,24 +342,11 @@
 
 	.left {
 		display: grid;
-		grid-template-rows: 200px auto;
-		.factmeter {
-			margin: 0 auto;
-			padding: 0 10%;
-			max-width: 250px;
-			#gauge {
-				width: 100%;
-			}
-			#labels {
-				display: flex;
-				width: 100%;
-				justify-content: space-around;
-			}
-		}
+		grid-template-rows: fit-content(50%) auto;
 		#factmeter {
 			margin: 0 auto;
 			padding: 0 10%;
-			max-width: 250px;
+			max-width: 800px;
 			margin: 0 auto;
 			#gauge {
 				width: 100%;

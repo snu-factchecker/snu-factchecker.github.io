@@ -71,6 +71,7 @@ class QuizPage4 extends React.Component{
 		}
 		temp.push(clueText)
 		this.setState({cluesCollected: temp});
+		this.saveToSessionStorage(this.state.cluesCollected.length)
 	}
 
 	// onClickClue = (offset)=>{
