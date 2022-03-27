@@ -602,14 +602,11 @@ class QuizPage3 extends React.Component {
 							<div id="result">
 								<div className="notebook-title">Professional FactChecker의 판정</div>
 								<div>
-									해당 정보는	
+									"무선이어폰 암 발생"의 주장은
 									<ol>
-										<li>
-											공공기관의 여러 실험에서 무선이어폰의 위험성이 낮게 나타났고
-										</li>
-										<li>
-											전문가 의견 탐색 결과, WHO의 주장 자체를 기사가 잘못 표기했음
-										</li>
+										<li>과학적으로 증명된 바 없으며,</li>
+										<li>공신력있는 기관에서 영향력이 미미함을 밝힘.</li>
+										<li>전문가들도 위험성이 낮다는 의견을 제시함.</li>
 									</ol>
 									따라서 <span id="spec">전혀 사실이 아님!</span>
 

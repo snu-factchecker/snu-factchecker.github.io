@@ -470,7 +470,7 @@ class QuizPage2 extends React.Component {
 							<div id="result">
 								<div className="notebook-title">Professional FactChecker의 판정</div>
 								<div>
-									해당 정보는	
+									"한국 문해력 OECD국중 최하위"주장은
 									<ol>
 										<li>게시물의 출처는 다소 상업적 의도를 지닌 블로그 글이며,</li>
 										<li>제시된 표는 적절한 근거가 되지 않음.</li>
