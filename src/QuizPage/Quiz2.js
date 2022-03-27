@@ -300,12 +300,18 @@ class QuizPage2 extends React.Component {
 				<QuizSidebar />
 			<div id="quiz">
 				{this.state.currentStep === 0?
-				(<div id="quiz-header">
-					<div id="header-title">Step 1: 있는 그대로 받아들이지 않고, 의심스러운 부분 찾기.</div>
-				</div>):(<div id="quiz-header">
-					<div id="header-title">Step 2: 추가적으로 정보를 검색하기</div>
-				</div>)
-				}
+					(<div id="quiz-header">
+						<div id="header-title">Step 1: 있는 그대로 받아들이지 않고, 의심스러운 부분 찾기.</div>
+						<div id="header-exp">제시된 게시물의 내용과 특징들을 잘 보고, 의심스러운 부분을 찾아 주세요. <br/>
+							게시물 상의 특정 부분에 마우스를 올리면 팩트체크 단서가 나타납니다. 단서를 클릭하여 팩트체크 노트에 기록해 주세요.
+						</div>
+					</div>):(<div id="quiz-header">
+						<div id="header-title">Step 2: 추가적으로 정보를 검색하기</div>
+						<div id="header-exp">팩트체크 노트에 기록된 키워드를 클릭하면 검색할 수 있습니다. 각 검색결과를 클릭하여 자세히 읽어보세요. <br/>
+							검색 결과의 특정 부분에 마우스를 올리면 팩트체크 단서가 나타납니다. 단서를 클릭하여 팩트체크 노트에 기록해 주세요.
+						</div>
+					</div>)
+					}
 				{this.state.currentStep === 0 ? (
 					<div className="quizContent">
 						<div id="quizitem-title">

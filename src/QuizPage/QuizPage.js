@@ -258,8 +258,14 @@ class QuizPage extends React.Component{
 					{this.state.currentStep === 0?
 					(<div id="quiz-header">
 						<div id="header-title">Step 1: 있는 그대로 받아들이지 않고, 의심스러운 부분 찾기.</div>
+						<div id="header-exp">제시된 게시물의 내용과 특징들을 잘 보고, 의심스러운 부분을 찾아 주세요. <br/>
+							게시물 상의 특정 부분에 마우스를 올리면 팩트체크 단서가 나타납니다. 단서를 클릭하여 팩트체크 노트에 기록해 주세요.
+						</div>
 					</div>):(<div id="quiz-header">
 						<div id="header-title">Step 2: 추가적으로 정보를 검색하기</div>
+						<div id="header-exp">팩트체크 노트에 기록된 키워드를 클릭하면 검색할 수 있습니다. 각 검색결과를 클릭하여 자세히 읽어보세요. <br/>
+							검색 결과의 특정 부분에 마우스를 올리면 팩트체크 단서가 나타납니다. 단서를 클릭하여 팩트체크 노트에 기록해 주세요.
+						</div>
 					</div>)
 					}
 					{this.state.currentStep === 0?
@@ -268,7 +274,7 @@ class QuizPage extends React.Component{
 						<div id="quizitem-author"><Clue innerText="101세형 (181.70)" tooltip="누군지 알 수 없는 오픈 커뮤니티 이용자의 글? " onClick={() => this.onClickClue("신뢰할 수 없는 작성자", 0)}/></div>
 						<img id="quizitem-image" src={quiz1} alt="article supplement"/>
 						<div id="quizitem-content">저기 실내죠? <br/>
-						<Clue innerText="실내에서 다닥다닥 붙어서 노 마스크로 미친거죠ㅎㅎ" tooltip="자극적인 메시지.. 무슨 의도가 담겨있는 걸까?" onClick={() => this.onClickClue("자극적인 메시지", 0)}/></div>
+						<Clue innerText="실내에서 다닥다닥 붙어서 노 마스크로 미친거죠ㅎㅎ" tooltip="자극적인 메시지.. 무슨 의도가 담겨있는 걸까?" onClick={() => this.onClickClue("자극적인 메시지", 0)}/></div><br/>
 						<Clue id="source" tooltip="신뢰하기 쉽지 않은 커뮤니티 게시글이네?" innerText="출처: DC인사이드 우한 마이너 갤러리" onClick={() => this.onClickClue("오픈 커뮤니티 출처", 0)}/>
 					</div>)
 					:this.state.currentStep === 1?(<div id="searchpage">
@@ -279,7 +285,7 @@ class QuizPage extends React.Component{
 							<div id="input">{this.state.searchTerm}</div>
 							<FontAwesomeIcon icon={faSearch}></FontAwesomeIcon>
 						</div>
-						{this.state.displayResult?results:(<div/>)}
+						{this.state.displayResult?results:(<div></div>)}
 					</div>):(null)}
 					
 					{this.state.currentStep <2 ?(<div className="left">

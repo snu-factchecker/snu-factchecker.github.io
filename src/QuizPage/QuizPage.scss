@@ -24,6 +24,16 @@
 		height: auto;
 		margin: 0 auto;
 	}
+
+	.sidebar-text{
+		text-align: left;
+		font-size: 14px;
+		margin-top: 12px;
+	}
+
+	a{
+		text-decoration: none;
+	}
 	.quiz-tracker{
 		.quiz-title{
 			font-weight: 700;
@@ -188,8 +198,13 @@
 		#header-title {
 			font-weight: 700;
 			font-size: 20px;
-			margin-bottom: 20px;
 			//text-align: left;
+			margin-bottom: 8px;
+		}
+		#header-exp{
+			font-size: 12px;
+			color: gray;
+			margin-bottom: 20px;
 		}
 		#tip-box {
 			background-color: #457b9d;

@@ -85,7 +85,12 @@ class QuizSidebar extends React.Component{
                     <div className="cleared">CLEAR!</div>:(null)}
                 </div>
                 {checkboxes[3]}
+                <div class="sidebar-text">
+                    모든 단서를 찾아 스탬프를 획득하면 Facts, Please 인증서가 발급됩니다.
+                </div>
             </div>
+
+            <a href="/help" target="_blank"><button>도움말 보기</button></a>
 
             <div>
             <div>© SNU 팩트체크센터</div>
