@@ -223,12 +223,6 @@ class QuizPage5 extends React.Component {
 							<div className="item-date">2021.06.09</div>
 						</div>
 
-						<div className="continue-reading" onClick={()=>this.displayResult(1)}>
-							본문 보기/접기 <br/>
-							{this.state.visibility[1] == true?<FontAwesomeIcon icon={faAngleUp} />:
-							<FontAwesomeIcon icon={faAngleDown} />}
-						</div>
-
 						<div
 							className={`item-content ${
 								this.state.visibility[1] ? "" : "invisible"
@@ -262,6 +256,13 @@ class QuizPage5 extends React.Component {
 								그래서 백신이나 방역이 필요 없다고 보면 안된다는 점을 강조합니다.
 							</p>
 						</div>
+
+
+						<div className="continue-reading" onClick={()=>this.displayResult(1)}>
+							본문 보기/접기 <br/>
+							{this.state.visibility[1] == true?<FontAwesomeIcon icon={faAngleUp} />:
+							<FontAwesomeIcon icon={faAngleDown} />}
+						</div>
 					</div>
 				</div>
 
@@ -281,11 +282,6 @@ class QuizPage5 extends React.Component {
 						<div className="sourceBox">
 							<div className="item-source">JTBC 뉴스룸  |</div>
 							<div className="item-date">2021.03.16</div>
-						</div>
-						<div className="continue-reading" onClick={()=>this.displayResult(2)}>
-							본문 보기/접기 <br/>
-							{this.state.visibility[2] == true?<FontAwesomeIcon icon={faAngleUp} />:
-							<FontAwesomeIcon icon={faAngleDown} />}
 						</div>
 						<div
 							className={`item-content ${
@@ -322,6 +318,11 @@ class QuizPage5 extends React.Component {
 									분비할 수 있는 변화가 되게 도와줘야 되고요.]
 								</Clue>
 							</p>
+						</div>
+						<div className="continue-reading" onClick={()=>this.displayResult(2)}>
+							본문 보기/접기 <br/>
+							{this.state.visibility[2] == true?<FontAwesomeIcon icon={faAngleUp} />:
+							<FontAwesomeIcon icon={faAngleDown} />}
 						</div>
 					</div>
 				</div>

@@ -204,11 +204,6 @@ class QuizPage2 extends React.Component {
 							<div className="item-source">뉴스톱 송영훈 팩트체커 |</div>
 							<div className="item-date">2021.03.26</div>
 						</div>
-						<div className="continue-reading" onClick={()=>this.displayResult(0)}>
-							본문 보기/접기 <br/>
-							{this.state.visibility[0] == true?<FontAwesomeIcon icon={faAngleUp} />:
-							<FontAwesomeIcon icon={faAngleDown} />}
-						</div>
 						<div
 							className={`item-content ${
 								this.state.visibility[0] ? "" : "invisible"
@@ -229,6 +224,11 @@ class QuizPage2 extends React.Component {
 							최하위권으로 떨어졌습니다. 연령이 높아질수록 문해력 측정 점수가 떨어지는
 							현상 자체는 일반적이었지만 한국의 경우 그 격차가 매우 크다는 점이 다른
 							나라들과 달랐습니다.
+						</div>
+						<div className="continue-reading" onClick={()=>this.displayResult(0)}>
+							본문 보기/접기 <br/>
+							{this.state.visibility[0] == true?<FontAwesomeIcon icon={faAngleUp} />:
+							<FontAwesomeIcon icon={faAngleDown} />}
 						</div>
 					</div>
 				</div>
@@ -259,11 +259,6 @@ class QuizPage2 extends React.Component {
 							></Clue>
 						</div>
 
-						<div className="continue-reading" onClick={()=>this.displayResult(1)}>
-							본문 보기/접기 <br/>
-							{this.state.visibility[1] == true?<FontAwesomeIcon icon={faAngleUp} />:
-							<FontAwesomeIcon icon={faAngleDown} />}
-						</div>
 						<div
 							className={`item-content ${
 								this.state.visibility[1] ? "" : "invisible"
@@ -289,6 +284,11 @@ class QuizPage2 extends React.Component {
 								문해 교육에 국가적인 지원과 관심이 필요하다”고 말했다. 박 용기자
 								parky@donga.com
 							</p>
+						</div>
+						<div className="continue-reading" onClick={()=>this.displayResult(1)}>
+							본문 보기/접기 <br/>
+							{this.state.visibility[1] == true?<FontAwesomeIcon icon={faAngleUp} />:
+							<FontAwesomeIcon icon={faAngleDown} />}
 						</div>
 					</div>
 				</div>

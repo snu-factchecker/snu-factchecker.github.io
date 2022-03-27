@@ -185,11 +185,6 @@ class QuizPage3 extends React.Component {
 							></Clue>
 							<div className="item-date">2020.03.08</div>
 						</div>
-						<div className="continue-reading" onClick={()=>this.displayResult(0)}>
-							본문 보기/접기 <br/>
-							{this.state.visibility[0] == true?<FontAwesomeIcon icon={faAngleUp} />:
-							<FontAwesomeIcon icon={faAngleDown} />}
-						</div>
 						<div
 							className={`item-content ${
 								this.state.visibility[0] ? "" : "invisible"
@@ -249,6 +244,11 @@ class QuizPage3 extends React.Component {
 									판매될 수 있습니다.
 								</p>
 							</div>
+							<div className="continue-reading" onClick={()=>this.displayResult(0)}>
+							본문 보기/접기 <br/>
+							{this.state.visibility[0] == true?<FontAwesomeIcon icon={faAngleUp} />:
+							<FontAwesomeIcon icon={faAngleDown} />}
+						</div>
 						</div>
 					</div>
 				</div>
@@ -281,11 +281,6 @@ class QuizPage3 extends React.Component {
 							<div className="item-date">2020.03.08</div>
 						</div>
 							
-						<div className="continue-reading" onClick={()=>this.displayResult(1)}>
-							본문 보기/접기 <br/>
-							{this.state.visibility[1] == true?<FontAwesomeIcon icon={faAngleUp} />:
-							<FontAwesomeIcon icon={faAngleDown} />}
-						</div>
 						<div
 							className={`item-content ${
 								this.state.visibility[1] ? "" : "invisible"
@@ -321,6 +316,11 @@ class QuizPage3 extends React.Component {
 								></Clue>
 							</p>
 						</div>
+						<div className="continue-reading" onClick={()=>this.displayResult(1)}>
+							본문 보기/접기 <br/>
+							{this.state.visibility[1] == true?<FontAwesomeIcon icon={faAngleUp} />:
+							<FontAwesomeIcon icon={faAngleDown} />}
+						</div>
 					</div>
 				</div>
 
@@ -349,11 +349,6 @@ class QuizPage3 extends React.Component {
 						<div className="sourceBox">
 							<div className="item-source">중앙일보 |</div>
 							<div className="item-date">2020.03.07</div>
-						</div>
-						<div className="continue-reading" onClick={()=>this.displayResult(2)}>
-							본문 보기/접기 <br/>
-							{this.state.visibility[2] == true?<FontAwesomeIcon icon={faAngleUp} />:
-							<FontAwesomeIcon icon={faAngleDown} />}
 						</div>
 						<div
 							className={`item-content ${
@@ -403,6 +398,11 @@ class QuizPage3 extends React.Component {
 									}}
 								/>
 							</p>
+						</div>
+						<div className="continue-reading" onClick={()=>this.displayResult(2)}>
+							본문 보기/접기 <br/>
+							{this.state.visibility[2] == true?<FontAwesomeIcon icon={faAngleUp} />:
+							<FontAwesomeIcon icon={faAngleDown} />}
 						</div>
 					</div>
 				</div>
