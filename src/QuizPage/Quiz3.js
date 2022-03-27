@@ -4,7 +4,11 @@ import GaugeChart from "react-gauge-chart";
 import QuizSidebar from './QuizSidebar.js'
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import {
+    faSearch,
+	faAngleDown,
+	faAngleUp
+} from "@fortawesome/free-solid-svg-icons";
 
 import "./QuizPage.scss";
 
@@ -57,18 +61,20 @@ class QuizPage3 extends React.Component {
 		}
 	};
 
-	onClickClue = (clueText) => {
+	onClickClue = (clueText, factscore)=>{
 		let temp = this.state.cluesCollected;
 
-		for (let i = 0; i < temp.length; i++) {
-			if (temp[i] === clueText) {
+		for (let i = 0; i<temp.length; i++){
+			if (temp[i] === clueText){
 				return;
 			}
 		}
-		temp.push(clueText);
-		this.setState({ cluesCollected: temp });
+		temp.push(clueText)
+		this.setState({cluesCollected: temp});
 		this.saveToSessionStorage(this.state.cluesCollected.length)
-	};
+		this.setFactScore(factscore)
+	}
+
 
 	// onClickClue = (offset)=>{
 
@@ -111,6 +117,21 @@ class QuizPage3 extends React.Component {
 		this.setState({ factScore: value, factScoreChanged: true });
 	};
 
+	showAnswers = ()=>{
+		let clues = document.querySelectorAll(".clue");
+		if (this.state.highlightsActive){
+			for (let i = 0; i < clues.length; i++){
+				clues[i].style.backgroundColor = "transparent";
+			}
+			this.setState({highlightsActive: false});
+		} else{
+			for (let i = 0; i < clues.length; i++){
+				clues[i].style.backgroundColor = "yellow";
+			}
+			this.setState({highlightsActive: true});
+		}
+	}
+
 	render() {
 		const keywords = this.state.keywordsCollected.map((item) => {
 			return (
@@ -125,7 +146,7 @@ class QuizPage3 extends React.Component {
 		});
 
 		let childarray = [];
-		for (let j = 0 ; j<5; j++){
+		for (let j = 0 ; j<6; j++){
 			if (j < this.state.cluesCollected.length){
 				childarray.push(React.createElement('div', {className: 'stamp', key: j}, <div>✔︎</div>))
 			} else{
@@ -159,10 +180,15 @@ class QuizPage3 extends React.Component {
 								tooltip="실험결과를 보여주는 국립전파연구원 사이트가 연결되네. 여기서 바로 결과 확인이 가능해! "
 								className="item-source"
 								onClick={() => {
-									this.onClickClue("공신력 있는 기관에서 진행한 실험");
+									this.onClickClue("공신력 있는 기관에서 진행한 실험", -20);
 								}}
 							></Clue>
 							<div className="item-date">2020.03.08</div>
+						</div>
+						<div className="continue-reading" onClick={()=>this.displayResult(0)}>
+							본문 보기/접기 <br/>
+							{this.state.visibility[0] == true?<FontAwesomeIcon icon={faAngleUp} />:
+							<FontAwesomeIcon icon={faAngleDown} />}
 						</div>
 						<div
 							className={`item-content ${
@@ -198,11 +224,9 @@ class QuizPage3 extends React.Component {
 								<p>
 									<Clue
 										innerText="블루투스 이어폰 측정결과 인체보호 기준 대비 0.5% 수준으로"
-										tooltip="블루투스 이어폰은 측정 결과,
-인체보호 기준 대비 0.5프로에 해당되네."
+										tooltip="블루투스 이어폰은 측정 결과, 인체보호 기준 대비 0.5프로에 해당되네."
 										onClick={() => {
-											this.onClickClue("글 내용과 반박되는 실험 결과");
-											this.setFactScore(-30);
+											this.onClickClue("글 내용과 반박되는 실험 결과", -30);
 										}}
 									></Clue>{" "}
 									실제 사용하는 조건에서는 전자파가 인체에 미치는 영향은 매우
@@ -251,12 +275,17 @@ class QuizPage3 extends React.Component {
 								tooltip="관련 분야의 국가 종합기관에서 진행한 실험이야."
 								className="item-source"
 								onClick={() => {
-									this.onClickClue("공신력 있는 기관에서 진행한 실험");
+									this.onClickClue("공신력 있는 기관에서 진행한 실험", 0);
 								}}
 							></Clue>
 							<div className="item-date">2020.03.08</div>
 						</div>
-
+							
+						<div className="continue-reading" onClick={()=>this.displayResult(1)}>
+							본문 보기/접기 <br/>
+							{this.state.visibility[1] == true?<FontAwesomeIcon icon={faAngleUp} />:
+							<FontAwesomeIcon icon={faAngleDown} />}
+						</div>
 						<div
 							className={`item-content ${
 								this.state.visibility[1] ? "" : "invisible"
@@ -287,8 +316,7 @@ class QuizPage3 extends React.Component {
 등 다양한 인체 밀착 생활제품에서도 전자파 발생량이 모두 인체보호기준 대비 1% 내외로 나타났다"
 									tooltip="실제 상황과 비슷하게 실험을 진행했을 때도 전자파의 효과가 거의 없다는 답이 나왔어."
 									onClick={() => {
-										this.onClickClue("글 내용과 반박되는 실험 결과");
-										this.setFactScore(-50);
+										this.onClickClue("글 내용과 반박되는 실험 결과", -30);
 									}}
 								></Clue>
 							</p>
@@ -308,7 +336,7 @@ class QuizPage3 extends React.Component {
 								innerText="[정정보도문]"
 								tooltip="해당 기사에 대한 정정보도도 나와 있네."
 								onClick={() => {
-									this.onClickClue("기사의 내용에 대한 정정보도");
+									this.onClickClue("기사의 내용에 대한 정정보도", -10);
 								}}
 							/>{" "}
 							'무선 이어폰, 암 발생 위험'은 오류, 바로 잡습니다
@@ -321,6 +349,11 @@ class QuizPage3 extends React.Component {
 						<div className="sourceBox">
 							<div className="item-source">중앙일보 |</div>
 							<div className="item-date">2020.03.07</div>
+						</div>
+						<div className="continue-reading" onClick={()=>this.displayResult(2)}>
+							본문 보기/접기 <br/>
+							{this.state.visibility[2] == true?<FontAwesomeIcon icon={faAngleUp} />:
+							<FontAwesomeIcon icon={faAngleDown} />}
 						</div>
 						<div
 							className={`item-content ${
@@ -366,8 +399,7 @@ class QuizPage3 extends React.Component {
 									innerText="“우리 주변에는 수많은 통신용 마이크로파가 지나다니고 있는데 전화기나 무선이어폰을 가까이 댄다고 문제가 되지 않는다”며 “전자기기는 전세계적으로 같은 기준의 전자파 유출 검사를 거친 뒤 출시하기 때문에 걱정할 필요가 없다”고 설명했습니다."
 									tooltip="전문가의 의견을 보니 세계적 검사를 거친 뒤 출시된 것이라고 하고, 이 부분에 대한 신뢰가 필요하겠어."
 									onClick={() => {
-										this.onClickClue("해당 분야 전문가의 발언");
-										this.setFactScore(-50);
+										this.onClickClue("해당 분야 전문가의 발언", -15);
 									}}
 								/>
 							</p>
@@ -419,17 +451,19 @@ class QuizPage3 extends React.Component {
 								비이온화 전자기장(EMF)가 암 유발 가능성이 있다"며 심각한
 								우려(serious concern)를 표명했다.
 								<br />
+								<br />
 								EMF는 전기장치 등에서 발생하는 '극저주파 전자기장'(ELF-EMF)와
 								블루투스, 와이파이, 안테나, 기지국 등에서 나오는 '고주파
 								방사선'(RFR)을 말한다. 과학자들은 "애플 에어팟 등{" "}
 								<Clue
 									innerText={`무선 이어폰이 두뇌에 어떤 영향을 미치는지 아직 연구결과가 없다"`}
 									tooltip="실험결과가 뒷받침 된다고 하진 않네.. "
-									onClick={() => this.onClickClue("실험 등 근거 없음")}
+									onClick={() => this.onClickClue("실험 등 근거 없음", 0)}
 								/>
 								면서도 "RFR을 동물들에게 노출한 결과 생식적·신경적·유전적 손상이
 								나타난 것을 발견했다"고 설명했다. 에어팟은 EMF에 관한 법적 기준치를
 								준수하고 있다.
+								<br />
 								<br />
 								하지만 과학자들은 EMF가 기준치보다 낮아도 암을 유발할 가능성은
 								있으며 낮은 수준의 EMF 노출이 장시간 이뤄질 경우 건강에 좋지 않은
@@ -443,11 +477,12 @@ class QuizPage3 extends React.Component {
 								<Clue
 									innerText={`"EMF 기준을 강화하고 예방책을 마련해야 한다"며`}
 									tooltip="그럼 지금까지 전세계적으로 팔린 무선 이어폰들이 기준치를 어겼는데도 출시된건가?"
-									onClick={() => this.onClickClue("비현실적인 주장")}
+									onClick={() => this.onClickClue("비현실적인 주장", -10)}
 								/>{" "}
 								"또, WHO가 이용자들에게 EMF에 대한 교육을 충분히 하도록 지도해야
 								한다"고 주장했다.
 							</div>
+							<br /><br />
 							<div>
 								출처: 배틀그라운드 공식카페 - PLAYERUNKNOWN'S BATTLEGROUNDS
 								자유게시판
@@ -483,7 +518,13 @@ class QuizPage3 extends React.Component {
 							/>
 							<div>{this.formatGaugeValue(this.state.factScore + 50)}</div>
 							<div>
-								총 단서 5개 중 {this.state.cluesCollected.length}개를 찾았습니다.
+								총 단서 6개 중 {this.state.cluesCollected.length}개를 찾았습니다.
+							</div>
+							<div id="hint-wrapper">
+								<div id="hint-area">
+									<div id="hint-button">?</div><div>단서를 찾는 데 어려움이 있나요?</div>
+								</div>
+								<div id="hint-activate" onClick={()=>this.showAnswers()}>클릭하여 모든 단서 확인하기</div>
 							</div>
 						</div>
 						<div id="notebook">
@@ -580,7 +621,7 @@ class QuizPage3 extends React.Component {
 							</div> */}
 						</div>
 						<div>
-							{this.formatGaugeValue(this.state.factScore+50 === "전혀 사실 아님")?(<div id="match">
+							{this.formatGaugeValue(this.state.factScore+50) === "전혀 사실 아님"?(<div id="match">
 									결과 일치
 									<br/>
 									Excellent!
@@ -590,11 +631,11 @@ class QuizPage3 extends React.Component {
 								<br/>
 								Needs More Practice!	
 							</div>)}
-							<div id="clueCount">총 5개의 단서 중 <span id="spec">{clues.length}</span>개의 단서를 찾았습니다.</div>
+							<div id="clueCount">총 6개의 단서 중 <span id="spec">{clues.length}</span>개의 단서를 찾았습니다.</div>
 							{parent}
 						</div>
 						{this.state.cluesCollected.length===6?(null):(<div>
-							팩트체크 수료증 획득을 위해 단서를 더 찾아보시겠습니까?
+							Facts, Please 인증서 획득을 위해 단서를 더 찾아보시겠습니까?
 							<br/> 이전 단계로 돌아가 단서를 더 찾아보세요.</div>)}
 
 					</div>

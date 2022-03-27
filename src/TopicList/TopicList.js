@@ -6,7 +6,7 @@ import "./Topic.scss";
 import img1 from "../QuizPage/quiz1_img.png";
 import img2 from "../QuizPage/quiz2.jpeg";
 import img3 from "../QuizPage/quiz3_img.png";
-import img4 from "../QuizPage/quiz4_img.png";
+// import img4 from "../QuizPage/quiz4_img.png";
 import img5 from "../QuizPage/quiz5.png";
 
 class TopicList extends React.Component {
@@ -50,7 +50,7 @@ class TopicList extends React.Component {
 		let getCertificate = ()=>{
 			this.props.history.push("/certificate")
 		}
-		let answers = [6 ,5, 5, 7, 6];
+		let answers = [6 ,6, 6, 7, 6];
 		let allcleared = window.sessionStorage.getItem("quiz1_clues") == answers[0] && 
 		window.sessionStorage.getItem("quiz2_clues") == answers[1] &&
 		window.sessionStorage.getItem("quiz3_clues") == answers[2] &&
@@ -59,15 +59,16 @@ class TopicList extends React.Component {
 			let cleared = false;
 
 			if (item.link === 1){
-				cleared = window.sessionStorage.getItem("quiz1_clues") === answers[0];
+				cleared = window.sessionStorage.getItem("quiz1_clues") === answers[0].toString();
 			} else if (item.link === 2){
-				cleared = window.sessionStorage.getItem("quiz2_clues") === answers[1];
+				cleared = window.sessionStorage.getItem("quiz2_clues") === answers[1].toString();
+				console.log(answers[1])
 			} else if (item.link === 3){
-				cleared = window.sessionStorage.getItem("quiz3_clues") === answers[2];
+				cleared = window.sessionStorage.getItem("quiz3_clues") === answers[2].toString();
 			} else if (item.link === 4){
-				cleared = window.sessionStorage.getItem("quiz4_clues") === answers[3];
+				cleared = window.sessionStorage.getItem("quiz4_clues") === answers[3].toString();
 			} else {
-				cleared = window.sessionStorage.getItem("quiz5_clues") === answers[4];
+				cleared = window.sessionStorage.getItem("quiz5_clues") === answers[4].toString();
 			}
 
 			return <Topic link={item.link} text={item.text} key={item.link} image={item.image} topic={item.topic} cleared={cleared} />;
@@ -80,14 +81,12 @@ class TopicList extends React.Component {
 					{!allcleared?
 					(<div>
 						총 네 가지 주제에 대한 팩트체크 게임을 시작합니다. <br />
-						순서대로 클릭해 플레이하세요. 모두 완료 후 설문에 응해주시면
-						게임 플레이가 완료됩니다.
 						<br/>
-						네 번 모두 팩트를 검증하는 데 성공하고 clear 도장을 받으시면, FactCheck 수료증이 제공됩니다.
+						네 번 모두 팩트를 검증하는 데 성공하고 clear 도장을 받으시면, Facts, Please 인증서가 제공됩니다.
 					</div>):(
 					<div>모든 레벨을 성공적으로 끝마쳤습니다!
 						<br/>
-						아래 링크를 통해 팩트체크 수료증을 발급받으세요.
+						아래 링크를 통해 Facts, Please 인증서를 발급받으세요.
 						<button onClick={()=>getCertificate()}>수료증 발급받기</button>
 					</div>)}
 					<div id="topic-list">{topics}</div>

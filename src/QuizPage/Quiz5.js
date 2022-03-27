@@ -4,7 +4,11 @@ import GaugeChart from "react-gauge-chart";
 import QuizSidebar from './QuizSidebar.js'
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import {
+    faSearch,
+	faAngleDown,
+	faAngleUp
+} from "@fortawesome/free-solid-svg-icons";
 
 import quiz5 from "./quiz5.png";
 
@@ -53,7 +57,7 @@ class QuizPage5 extends React.Component {
 		}
 		if (value > 75) {
 			return "사실";
-		} else if (value > 50) {
+		} else if (value >= 50) {
 			return "대체로 사실";
 		} else if (value > 25) {
 			return "대체로 사실 아님";
@@ -62,18 +66,20 @@ class QuizPage5 extends React.Component {
 		}
 	};
 
-	onClickClue = (clueText) => {
+	onClickClue = (clueText, factscore)=>{
 		let temp = this.state.cluesCollected;
 
-		for (let i = 0; i < temp.length; i++) {
-			if (temp[i] === clueText) {
+		for (let i = 0; i<temp.length; i++){
+			if (temp[i] === clueText){
 				return;
 			}
 		}
-		temp.push(clueText);
-		this.setState({ cluesCollected: temp });
+		temp.push(clueText)
+		this.setState({cluesCollected: temp});
 		this.saveToSessionStorage(this.state.cluesCollected.length)
-	};
+		this.setFactScore(factscore)
+	}
+
 
 	// onClickClue = (offset)=>{
 
@@ -116,6 +122,21 @@ class QuizPage5 extends React.Component {
 		this.setState({ factScore: value, factScoreChanged: true });
 	};
 
+	showAnswers = ()=>{
+		let clues = document.querySelectorAll(".clue");
+		if (this.state.highlightsActive){
+			for (let i = 0; i < clues.length; i++){
+				clues[i].style.backgroundColor = "transparent";
+			}
+			this.setState({highlightsActive: false});
+		} else{
+			for (let i = 0; i < clues.length; i++){
+				clues[i].style.backgroundColor = "yellow";
+			}
+			this.setState({highlightsActive: true});
+		}
+	}
+
 	render() {
 		const keywords = this.state.keywordsCollected.map((item) => {
 			return (
@@ -155,8 +176,7 @@ class QuizPage5 extends React.Component {
 							<Clue
 								tooltip="정말 기사대로 국제 저널에 실린 논문이 맞네. 내용이 너무 전문적이니 더 검색해봐야겠어"
 								onClick={() => {
-									this.onClickClue("공신력있는 근거자료 확인");
-									this.setFactScore(10);
+									this.onClickClue("공신력있는 근거자료 확인", 5);
 								}}
 							>
 								Stereotypic neutralizing VH antibodies against SARS-CoV-2 spike
@@ -172,7 +192,7 @@ class QuizPage5 extends React.Component {
 							(RBD) in healthy individuals and patients with COVID-19..
 						</div>
 						<div className="sourceBox">
-							<div className="item-source">Science Translational Medicine</div>
+							<div className="item-source">Science Translational Medicine | </div>
 							<div className="item-date">2021.01.27</div>
 						</div>
 					</div>
@@ -203,6 +223,12 @@ class QuizPage5 extends React.Component {
 							<div className="item-date">2021.06.09</div>
 						</div>
 
+						<div className="continue-reading" onClick={()=>this.displayResult(1)}>
+							본문 보기/접기 <br/>
+							{this.state.visibility[1] == true?<FontAwesomeIcon icon={faAngleUp} />:
+							<FontAwesomeIcon icon={faAngleDown} />}
+						</div>
+
 						<div
 							className={`item-content ${
 								this.state.visibility[1] ? "" : "invisible"
@@ -225,7 +251,7 @@ class QuizPage5 extends React.Component {
 								<Clue
 									tooltip="전문가들도 이 연구 결과에 관심을 갖고 해석하고 있구나."
 									onClick={() => {
-										this.onClickClue("연구 결과에 대한 전문가의 해석");
+										this.onClickClue("연구 결과에 대한 전문가의 해석", 0);
 									}}
 								>
 									마상혁 대한백신학회 부회장은 항체나 면역세포가 있을 수 있지만,
@@ -243,9 +269,6 @@ class QuizPage5 extends React.Component {
 					<div>
 						<div
 							className="item-title"
-							onClick={() => {
-								this.displayResult(2);
-							}}
 						>
 							서울대 연구팀, 코로나19 면역세포 있어도.. 방역·백신 여전히 중요
 						</div>
@@ -256,8 +279,13 @@ class QuizPage5 extends React.Component {
 							것”이라 설명합니다.
 						</div>
 						<div className="sourceBox">
-							<div className="item-source">JTBC 뉴스룸</div>
+							<div className="item-source">JTBC 뉴스룸  |</div>
 							<div className="item-date">2021.03.16</div>
+						</div>
+						<div className="continue-reading" onClick={()=>this.displayResult(2)}>
+							본문 보기/접기 <br/>
+							{this.state.visibility[2] == true?<FontAwesomeIcon icon={faAngleUp} />:
+							<FontAwesomeIcon icon={faAngleDown} />}
 						</div>
 						<div
 							className={`item-content ${
@@ -285,7 +313,7 @@ class QuizPage5 extends React.Component {
 								<Clue
 									tooltip="해당 논문의 연구자들도 연구 결과의 중요성을 강조하는 동시에 과도한 해석의 우려를 제기하고 있어."
 									onClick={() => {
-										this.onClickClue("연구팀의 연구 결과에 대한 인터뷰 내용");
+										this.onClickClue("연구팀의 연구 결과에 대한 인터뷰 내용", 10);
 									}}
 								>
 									[정준호/서울대 의대 생화학교실 교수 : 이런 면역세포가 있다고
@@ -327,7 +355,7 @@ class QuizPage5 extends React.Component {
 						<div id="quizitem-author">
 							기사입력 2021.06.02 오후 01:21
 							<br />
-							연합뉴스 배준용 기자
+							조선일보 배준용 기자
 						</div>
 
 						<div id="quizitem-content">
@@ -337,7 +365,7 @@ class QuizPage5 extends React.Component {
 							<Clue
 								tooltip="서울대학교 연구팀의 연구 결과로군."
 								onClick={() => {
-									this.onClickClue("연구 결과");
+									this.onClickClue("연구 결과", 0);
 								}}
 							>
 								최근 서울대병원 (감염내과 오명돈, 박완범)과 서울대학교 (생화학교실
@@ -365,7 +393,7 @@ class QuizPage5 extends React.Component {
 							<Clue
 								tooltip="자료의 출처가 있네. 검색해봐야겠다."
 								onClick={() => {
-									this.onClickClue("근거자료의 구체적 제시");
+									this.onClickClue("근거자료의 구체적 제시", 0);
 								}}
 							>
 								해당 연구 논문은 세계적인 중개의학 학술지 트랜스레셔널 메디신
@@ -375,27 +403,16 @@ class QuizPage5 extends React.Component {
 							<br />
 							▶▶ 배준용 기자
 							<br />
-							사회정책부 기자입니다. 코로나19, 의료 이슈를 취재하고 있습니다
 							<br />
-							<br />
-							{"<저작권자(c) 연합뉴스>"}
-							<br />
-							<br />
-							<div>출처: 
 							<Clue
-								tooltip="연합뉴스는 공신력 있는 언론사 중 하나야."
+								tooltip="주요 언론사에서 보도된 내용이구나."
 								onClick={() => {
-									this.onClickClue("공신력 있는 언론사의 기사");
-									this.setFactScore(10);
+									this.onClickClue("주요 언론사의 기사", 5);
 								}}
 							>
-								<img
-									src="https://news.imaeil.com/inc/photos/2020/03/10/2020031019075094251_l.jpg"
-									style={{ width: "70px", marginLeft: "10px" }}
-									alt="연합뉴스 로고"
-								></img>
+								{"<저작권자(c) 조선일보>"}
 							</Clue>
-							</div>
+
 						</div>
 					</div>
 				) : this.state.currentStep === 1 ? (
@@ -428,6 +445,12 @@ class QuizPage5 extends React.Component {
 							<div>{this.formatGaugeValue(this.state.factScore + 50)}</div>
 							<div>
 								총 단서 6개 중 {this.state.cluesCollected.length}개를 찾았습니다.
+							</div>
+							<div id="hint-wrapper">
+								<div id="hint-area">
+									<div id="hint-button">?</div><div>단서를 찾는 데 어려움이 있나요?</div>
+								</div>
+								<div id="hint-activate" onClick={()=>this.showAnswers()}>클릭하여 모든 단서 확인하기</div>
 							</div>
 						</div>
 						<div id="notebook">
@@ -517,7 +540,7 @@ class QuizPage5 extends React.Component {
 
 						</div>
 						<div>
-							{this.formatGaugeValue(this.state.factScore+50 === "대체로 사실")?(<div id="match">
+							{this.formatGaugeValue(this.state.factScore+50) === "대체로 사실"?(<div id="match">
 									결과 일치
 									<br/>
 									Excellent!
@@ -531,7 +554,7 @@ class QuizPage5 extends React.Component {
 							{parent}
 						</div>
 						{this.state.cluesCollected.length===6?(null):(<div>
-							팩트체크 수료증 획득을 위해 단서를 더 찾아보시겠습니까?
+							Facts, Please 인증서 획득을 위해 단서를 더 찾아보시겠습니까?
 							<br/> 이전 단계로 돌아가 단서를 더 찾아보세요.</div>)}
 
 					</div>

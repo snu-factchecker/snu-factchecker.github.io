@@ -39,7 +39,7 @@ class Intro extends React.Component{
 				<div id="buttons">
 					<button onClick={() => this.PlayGame()}>게임 시작하기</button>
 					{/* <button onClick={() => this.PlayTutorial()}>튜토리얼 진행하기</button> */}
-					<button onClick={() => this.gameGuide()}>도움말</button>
+					<button onClick={() => this.gameGuide()}>게임 플레이 방법</button>
 				</div>
 			</div>
 			{/* <footer>© SNU 팩트체크센터</footer> */}

@@ -20,14 +20,14 @@ class Help extends React.Component{
 			<div id="header-title">게임 플레이 안내</div>
 
 			<div>팩트체커가 되어 여러 기사와 인터넷 게시글의 팩트 여부를 검증해 봅시다!</div>
-			<strong>1. 데이터 관찰 단계</strong>
+			<strong>1. 정보 탐색 단계</strong>
 			<br/>
 			<img src={img1}/>
 			<div>주어진 자료에서 힌트 및 키워드를 찾습니다.</div>
 			<div>분석에 유의미한 자료들에 마우스를 올리면 자료에 대한 분석이 나타나고, 이를 클릭하면 힌트 혹은 키워드를 얻을 수 있습니다.</div>
 			<div>최대한 많은 키워드를 발견해 보세요!</div>
 			<br/><br/>
-			<strong>2. 데이터 검증 단계</strong>
+			<strong>2. 정보 검색 단계</strong>
 			<br/>
 			<img src={img3}/>
 			{/* <img src={img2}/> */}

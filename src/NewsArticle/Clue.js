@@ -3,7 +3,8 @@ import React from "react";
 import "./Clue.scss";
 
 class Clue extends React.Component {
-	state = { x: 0, y: 0 };
+	state = { x: 0, y: 0,
+	clicked: false};
 
 	_onMouseMove(e) {
 		this.setState({ x: e.screenX, y: e.screenY });

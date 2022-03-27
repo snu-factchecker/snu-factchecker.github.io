@@ -13,7 +13,7 @@ class QuizSidebar extends React.Component{
         quiz3_clues: 0,
         quiz4_clues: 0,
         quiz5_clues: 0,
-        answers : [6 ,5, 5, 7, 6],
+        answers : [6 ,6, 5, 7, 6],
     }
 
 
@@ -24,8 +24,13 @@ class QuizSidebar extends React.Component{
         this.setState({quiz4_clues: window.sessionStorage.getItem("quiz4_clues")});
         this.setState({quiz5_clues: window.sessionStorage.getItem("quiz5_clues")});
     }
+
+    returnToTopics = ()=>{
+		this.props.history.push("/topics")
+	}
+
 	render(){
-        let answers = [6 ,5, 5, 7, 6];
+        let answers = [6 ,6, 6, 7, 6];
         let answerstate = [window.sessionStorage.getItem("quiz1_clues"),
                             window.sessionStorage.getItem("quiz2_clues"),
                             window.sessionStorage.getItem("quiz3_clues"),
@@ -53,7 +58,7 @@ class QuizSidebar extends React.Component{
 
 
 		return(<div id="sidebar">
-            <div><img id="sidebarlogo" src={logo} alt="logo"/></div>
+            <a href="/topics"><img id="sidebarlogo" src={logo} alt="logo"/></a>
             <div className="quiz-tracker">
                 <div className="quiz-title">1. 국가행사
                 {window.sessionStorage.getItem("quiz1_clues")==answers[0]?

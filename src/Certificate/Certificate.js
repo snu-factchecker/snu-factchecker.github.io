@@ -76,7 +76,7 @@ class Certificate extends React.Component{
                 <div id="cert-wrapper">
                 <div id="cert-title">
                     <div id="eng">CERTIFICATE OF COMPLETION</div>
-                    <div id="kor">온라인 팩트체크 교육 완주 인증서</div>
+                    <div id="kor">온라인 팩트체크 게임 완주 인증서</div>
                 </div>
 
                 <div id="cert-name">
@@ -89,7 +89,7 @@ class Certificate extends React.Component{
                     <div className="underline">DATE</div>
                 </div>
 
-                <div className="exp">아래 주제들에 대해 팩트체크 체험을 성공적으로 진행하였기에<br/>이 수료증을 드립니다.</div>
+                <div className="exp">아래 주제들에 대해 팩트체크 게임을 성공적으로 진행하였기에<br/>이 인증서를 드립니다.</div>
                 <div id="cert-topics">
                     <div className="topic-wrapper">
                         <div className="topic-name">

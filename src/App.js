@@ -11,7 +11,7 @@ import TopicList from "./TopicList/TopicList";
 import QuizPage from "./QuizPage/QuizPage";
 import QuizPage2 from "./QuizPage/Quiz2";
 import QuizPage3 from "./QuizPage/Quiz3";
-import QuizPage4 from "./QuizPage/Quiz4";
+// import QuizPage4 from "./QuizPage/Quiz4";
 import QuizPage5 from "./QuizPage/Quiz5";
 import Tutorial from "./Tutorial/Tutorial";
 import Certificate from "./Certificate/Certificate"
@@ -33,7 +33,7 @@ class App extends React.Component {
 							<Route path="/topic/1" exact component={QuizPage} />
 							<Route path="/topic/2" exact component={QuizPage2} />
 							<Route path="/topic/3" exact component={QuizPage3} />
-							<Route path="/topic/4" exact component={QuizPage4} />
+							{/* <Route path="/topic/4" exact component={QuizPage4} /> */}
 							<Route path="/topic/5" exact component={QuizPage5} />
 							<Route path="/tutorial" exact component={Tutorial} />
 							<Route path="/certificate" exact component={Certificate} />

@@ -4,7 +4,10 @@ import GaugeChart from "react-gauge-chart";
 import QuizSidebar from './QuizSidebar.js'
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import {
+    faSearch,
+	faAngleDown,
+	faAngleUp} from "@fortawesome/free-solid-svg-icons";
 
 import map from "./quiz2_map.png";
 
@@ -64,18 +67,19 @@ class QuizPage2 extends React.Component {
 		}
 	};
 
-	onClickClue = (clueText) => {
+	onClickClue = (clueText, factscore)=>{
 		let temp = this.state.cluesCollected;
 
-		for (let i = 0; i < temp.length; i++) {
-			if (temp[i] === clueText) {
+		for (let i = 0; i<temp.length; i++){
+			if (temp[i] === clueText){
 				return;
 			}
 		}
-		temp.push(clueText);
-		this.setState({ cluesCollected: temp });
+		temp.push(clueText)
+		this.setState({cluesCollected: temp});
 		this.saveToSessionStorage(this.state.cluesCollected.length)
-	};
+		this.setFactScore(factscore)
+	}
 
 	// onClickClue = (offset)=>{
 
@@ -118,6 +122,21 @@ class QuizPage2 extends React.Component {
 		this.setState({ factScore: value, factScoreChanged: true });
 	};
 
+	showAnswers = ()=>{
+		let clues = document.querySelectorAll(".clue");
+		if (this.state.highlightsActive){
+			for (let i = 0; i < clues.length; i++){
+				clues[i].style.backgroundColor = "transparent";
+			}
+			this.setState({highlightsActive: false});
+		} else{
+			for (let i = 0; i < clues.length; i++){
+				clues[i].style.backgroundColor = "yellow";
+			}
+			this.setState({highlightsActive: true});
+		}
+	}
+
 	render() {
 		const keywords = this.state.keywordsCollected.map((item) => {
 			return (
@@ -132,7 +151,7 @@ class QuizPage2 extends React.Component {
 		});
 
 		let childarray = [];
-		for (let j = 0 ; j<5; j++){
+		for (let j = 0 ; j<6; j++){
 			if (j < this.state.cluesCollected.length){
 				childarray.push(React.createElement('div', {className: 'stamp', key: j}, <div>✔︎</div>))
 			} else{
@@ -149,7 +168,8 @@ class QuizPage2 extends React.Component {
 				<Clue
 					tooltip="논술학원이구나.
 					그래서 이런 독서교육 홍보 차원에서 게시된 글이구나."
-					onClick={() => this.setFactScore(-10)}
+					onClick={() =>
+						this.onClickClue("게시자의 상업적 홍보 의도", -10)}
 				>
 					<img src={map} style={{ width: "80%" }} />
 				</Clue>
@@ -158,15 +178,12 @@ class QuizPage2 extends React.Component {
 
 		const results_2 = (
 			<div id="searchresults">
-				<strong>웹사이트 검색 결과</strong>
+				<strong onClick={()=>this.showAnswers()}>웹사이트 검색 결과</strong>
 
 				<div className="search-result noimage">
 					<div>
 						<div
 							className="item-title"
-							onClick={() => {
-								this.displayResult(0);
-							}}
 						>
 							한국인의 문해력 OECD 조사결과
 						</div>
@@ -176,8 +193,7 @@ class QuizPage2 extends React.Component {
 							<Clue
 								tooltip="실제로는 문해력이 OECD 평균보다 더 높잖아?"
 								onClick={() => {
-									this.onClickClue("주장과 반대되는 근거");
-									this.setFactScore(-10);
+									this.onClickClue("주장과 반대되는 근거", -10);
 								}}
 							>
 								한국의 ‘문해력’은 273점으로 OECD평균인 266점보다 상당히 높았습니다
@@ -187,6 +203,11 @@ class QuizPage2 extends React.Component {
 						<div className="sourceBox">
 							<div className="item-source">뉴스톱 송영훈 팩트체커 |</div>
 							<div className="item-date">2021.03.26</div>
+						</div>
+						<div className="continue-reading" onClick={()=>this.displayResult(0)}>
+							본문 보기/접기 <br/>
+							{this.state.visibility[0] == true?<FontAwesomeIcon icon={faAngleUp} />:
+							<FontAwesomeIcon icon={faAngleDown} />}
 						</div>
 						<div
 							className={`item-content ${
@@ -216,9 +237,6 @@ class QuizPage2 extends React.Component {
 					<div>
 						<div
 							className="item-title"
-							onClick={() => {
-								this.displayResult(1);
-							}}
 						>
 							한국인 문서 해독능력 형편없다…OECD국중 최하위수준
 						</div>
@@ -236,12 +254,16 @@ class QuizPage2 extends React.Component {
 								tooltip="최하위 수준은 2002년 기사네."
 								className="item-source"
 								onClick={() => {
-									this.onClickClue("현재 상황과 관련 없는 자료");
-									this.setFactScore(-10);
+									this.onClickClue("현재 상황과 관련 없는 자료", -10);
 								}}
 							></Clue>
 						</div>
 
+						<div className="continue-reading" onClick={()=>this.displayResult(1)}>
+							본문 보기/접기 <br/>
+							{this.state.visibility[1] == true?<FontAwesomeIcon icon={faAngleUp} />:
+							<FontAwesomeIcon icon={faAngleDown} />}
+						</div>
 						<div
 							className={`item-content ${
 								this.state.visibility[1] ? "" : "invisible"
@@ -302,18 +324,14 @@ class QuizPage2 extends React.Component {
 							나라라고 합니다. 글자를 읽지 못하는 문맹률은 1% 이하라고 하죠. 누구나
 							글자는 읽는다는 것입니다. 하지만! 글을 이해하는 능력인 독해력과 문해력
 							즉 '실질 문맹률'은 75%에 달해 OECD 22개국 중 최하위에 해당된다고 합니다.
-							어떻게 이런 일이 벌어진 걸까요? <br />
-							대신 읽어 주고 요약해주는 시대, 인터넷 정보 중심으로 읽기를 대신하는
-							요즘 최근 우리나라 독서 실태에서도 보듯 3명 중 1명은 1년에 책을 한 권도
-							읽지 않고, 긴 글을 읽기 싫어하는 세태를 반영해 인터넷 기사나 글에는 3줄
-							요약, 이미지 중심의 카드 뉴스 등 읽기와 점점 멀어지고 있습니다. 그
-							현실이 그대로 반영되어 글자를 읽기는 하지만 이해하지는 못하는
+							어떻게 이런 일이 벌어진 걸까요? <br /><br />
+							{"대신 읽어 주고 요약해주는 시대, 인터넷 정보 중심으로 읽기를 대신하는 요즘 최근 우리나라 독서 실태에서도 보듯 3명 중 1명은 1년에 책을 한 권도 읽지 않고, 긴 글을 읽기 싫어하는 세태를 반영해 인터넷 기사나 글에는 3줄 요약, 이미지 중심의 카드 뉴스 등 읽기와 점점 멀어지고 있습니다. 그 현실이 그대로 반영되어 글자를 읽기는 하지만 이해하지는 못하는 "}
 							<Clue
-								innerText="문해율이
+								innerText=" 문해율이
 							OECD 국가 중 최저"
 								tooltip="문해력 최하위라는 근거는 없네?"
 								onClick={() => {
-									this.onClickClue("주장의 근거 없음");
+									this.onClickClue("주장의 근거 없음", 0);
 									this.onClickKeyword("문해력 OECD국중 최하위");
 								}}
 							/>
@@ -323,7 +341,7 @@ class QuizPage2 extends React.Component {
 							<img id="quizitem-image" src={quiz2} alt="article supplement" />
 							<Clue
 								tooltip="책 판매권수에 대한 이 자료가 근거가 되나? 자세히 보면 판매권수가 모두 줄어들은 것만도 아니네??"
-								onClick={() => this.onClickClue("제시된 자료와 주장의 연관성 없음")}
+								onClick={() => this.onClickClue("제시된 자료와 주장의 연관성 없음", -5)}
 								innerText="▶ 사진출처: 주간경향, 독서의 양극화 '분해 격차' 커진다_ 박은하 기자 (2016.11.08)"
 							></Clue>
 							<br />
@@ -336,9 +354,9 @@ class QuizPage2 extends React.Component {
 								innerText=" 책을 통해 긴 글을 읽고 생각하고 이해하는 교육이 문해력을 키우는
 							방법입니다."
 								tooltip="VERITAS 독서 센터가 독서 토론 교육을 광고하는 것은 아닐까?"
-								onClick={() => this.onClickClue("상업적 의도 의심")}
+								onClick={() => this.onClickClue("상업적 의도 의심", 0)}
 							/>
-							<br />
+							<br /><br />
 							<div>출처: VERITAS독서센터 - 네이버 블로그</div>
 						</div>
 					</div>
@@ -377,7 +395,13 @@ class QuizPage2 extends React.Component {
 							/>
 							<div>{this.formatGaugeValue(this.state.factScore + 50)}</div>
 							<div>
-								총 단서 5개 중 {this.state.cluesCollected.length}개를 찾았습니다.
+								총 단서 6개 중 {this.state.cluesCollected.length}개를 찾았습니다.
+							</div>
+							<div id="hint-wrapper">
+								<div id="hint-area">
+									<div id="hint-button">?</div><div>단서를 찾는 데 어려움이 있나요?</div>
+								</div>
+								<div id="hint-activate" onClick={()=>this.showAnswers()}>클릭하여 모든 단서 확인하기</div>
 							</div>
 						</div>
 						<div id="notebook">
@@ -462,7 +486,7 @@ class QuizPage2 extends React.Component {
 							</div> */}
 						</div>
 						<div>
-							{this.formatGaugeValue(this.state.factScore+50 === "전혀 사실 아님")?(<div id="match">
+							{this.formatGaugeValue(this.state.factScore+50)=== "전혀 사실 아님"?(<div id="match">
 									결과 일치
 									<br/>
 									Excellent!
@@ -472,11 +496,11 @@ class QuizPage2 extends React.Component {
 								<br/>
 								Needs More Practice!	
 							</div>)}
-							<div id="clueCount">총 5개의 단서 중 <span id="spec">{clues.length}</span>개의 단서를 찾았습니다.</div>
+							<div id="clueCount">총 6개의 단서 중 <span id="spec">{clues.length}</span>개의 단서를 찾았습니다.</div>
 							{parent}
 						</div>
 						{this.state.cluesCollected.length===5?(null):(<div>
-							팩트체크 수료증 획득을 위해 단서를 더 찾아보시겠습니까?
+							Facts, Please 인증서 획득을 위해 단서를 더 찾아보시겠습니까?
 							<br/> 이전 단계로 돌아가 단서를 더 찾아보세요.</div>)}
 
 					</div>
