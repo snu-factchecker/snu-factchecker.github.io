@@ -566,9 +566,8 @@ class QuizPage5 extends React.Component {
                                         다음 단계로 넘어가 주세요.
                                     </div>
                                 ) : (
-                                    <div>
-                                        팩트체크 단서
-                                        <br />총 6개 중{" "}
+                                    <div id="gauge-info">
+                                        팩트체크 단서 총 6개 중{" "}
                                         {this.state.cluesCollected.length}개를
                                         찾았습니다.
                                     </div>
