@@ -573,23 +573,9 @@ class QuizPage extends React.Component {
                                     )}
                                 </div>
                                 <div>
-                                    총 단서 6개 중{" "}
+                                    팩트체크 단서 총 6개 중{" "}
                                     {this.state.cluesCollected.length}개를
                                     찾았습니다.
-                                </div>
-                                <div id="hint-wrapper">
-                                    <div id="hint-area">
-                                        <div id="hint-button">?</div>
-                                        <div>
-                                            단서를 찾는 데 어려움이 있나요?
-                                        </div>
-                                    </div>
-                                    <div
-                                        id="hint-activate"
-                                        onClick={() => this.showAnswers()}
-                                    >
-                                        클릭하여 모든 단서 확인하기
-                                    </div>
                                 </div>
                             </div>
                             <div id="notebook">
@@ -611,6 +597,22 @@ class QuizPage extends React.Component {
                                         키워드
                                     </div>
                                     <div>{keywords}</div>
+                                </div>
+                                <div id="warning">
+                                    ※ 팩트체크를 위해 검색할 키워드를 찾아야
+                                    다음 단계로 넘어갈 수 있습니다.
+                                </div>
+                            </div>
+                            <div id="hint-wrapper">
+                                <div id="hint-area">
+                                    <div id="hint-button">?</div>
+                                    <div>단서를 찾는 데 어려움이 있나요?</div>
+                                </div>
+                                <div
+                                    id="hint-activate"
+                                    onClick={() => this.showAnswers()}
+                                >
+                                    클릭하여 모든 단서 확인하기
                                 </div>
                             </div>
                         </div>

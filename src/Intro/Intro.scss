@@ -1,98 +1,109 @@
-#intro, #help{
-	#title{
-		font-weight: 700;
-		font-size: 36px;
-		margin-top: 28px;
-		color: white;
-	}
+#intro,
+#help {
+    #title {
+        font-weight: 700;
+        font-size: 36px;
+        margin-top: 28px;
+        color: white;
+    }
 
-	#introtext{
-		margin: 24px auto;
-		width: 90%;
-		color: white;
-	}
+    #introtext {
+        margin: 0 auto 24px;
+        width: 90%;
+        color: white;
+    }
 
-	#intro-image{
-		width: 400px;
-		height: auto;
-	}
+    #intro-image {
+        width: 400px;
+        height: auto;
+    }
 
-	button{
-		background-image: none;
-		border: none;
-		display: block;
-		cursor: pointer;
-	
-		margin: 20px auto;
-		border-radius: 5px;
-		width: 200px;
-		height: 40px;
-		&:hover{
-			background-color: #969696;
-			transition: background-color 0.3s ease-in-out;
-		}
-	}
+    button {
+        background-image: none;
+        border: none;
+        display: block;
+        cursor: pointer;
 
-	#intro-guide{
-		text-align: left;
-		width: fit-content;
-		padding: 20px;
-		padding-top: 15px;
-		margin: 10px auto;
-		background-color: darkorange;
-		#guide-title{
-			margin-bottom: 10px;
-			font-weight: 700;
-			text-align: center;
-		}
+        margin: 20px auto;
+        border-radius: 5px;
+        width: 200px;
+        height: 40px;
+        &:hover {
+            background-color: #969696;
+            transition: background-color 0.3s ease-in-out;
+        }
+    }
 
-		#guide-text{
-			background-color: white;
-			padding: 10px;
-		}
-	}
+    #intro-guide {
+        text-align: left;
+        width: fit-content;
+        padding: 20px;
+        padding-top: 15px;
+        margin: 10px auto;
+        background-color: darkorange;
+        #guide-title {
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-align: center;
+        }
 
-	#board{
-		width: 70%;
-		margin: 0 auto;
-		border: rgb(71, 42, 14) 15px solid;
-		padding: 0px 40px 16px;
-		display: grid;
-		grid-template-columns: auto auto;
-		#buttons{
-			align-self: end;
-			justify-self: end;
-		}	
-	}
+        #guide-text {
+            background-color: white;
+            padding: 10px;
+        }
+    }
+
+    #board {
+        width: fit-content;
+        margin: 0 auto;
+        column-gap: 20px;
+        border: rgb(71, 42, 14) 15px solid;
+        padding: 0px 40px 16px;
+        display: grid;
+        grid-template-columns: auto auto;
+        #buttons {
+            align-self: end;
+            justify-self: end;
+        }
+    }
+
+    #credits {
+        color: gray;
+        font-size: 12px;
+        margin-top: 16px;
+        span {
+            color: white;
+            font-size: 14px;
+        }
+    }
 }
 
-#intro{
-	position:absolute;
+#intro {
+    position: absolute;
     height: 100vh;
-	left: 0;
-	top: 0;
-	width: 100vw;
-	background-color: black
+    left: 0;
+    top: 0;
+    width: 100vw;
+    background-color: black;
 }
 
-#help{
-	height: 85vh;
-	overflow-y: scroll;
-	overflow-x: hidden;
-	padding:20px;
-	text-align: left;
-	background-color: white;
-	img{
-		max-width: 60%;;
-	}
+#help {
+    height: 85vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 20px;
+    text-align: left;
+    background-color: white;
+    img {
+        max-width: 60%;
+    }
 
-	strong{
-		font-size: 24px;
-	}
-	#header-title{
-		font-weight: 700;
-		font-size: 24px;
-		margin-bottom: 20px;
-	}
+    strong {
+        font-size: 24px;
+    }
+    #header-title {
+        font-weight: 700;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
 }
-
