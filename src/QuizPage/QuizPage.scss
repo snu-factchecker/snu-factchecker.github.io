@@ -384,7 +384,7 @@
 
     .left {
         display: grid;
-        grid-template-rows: fit-content(50%) auto auto;
+        grid-template-rows: fit-content(50%) auto 45px;
         #factmeter {
             margin: 0 auto;
             padding: 0 10%;
@@ -401,7 +401,7 @@
         }
         #hint-wrapper {
             font-size: 14px;
-            margin: 16px;
+            margin: 12px;
             color: gray;
             #hint-area {
                 display: flex;
@@ -439,8 +439,12 @@
         background-image: url(./notebook.png);
         background-position-x: center;
         display: grid;
-        grid-template-rows: 8% 60% 30% auto;
-        row-gap: 12px;
+        grid-template-rows: 20px 50% 20% auto;
+        row-gap: 8px;
+
+        #warning {
+            font-size: 12px;
+        }
 
         #title {
             font-weight: 700;
@@ -457,7 +461,7 @@
         }
         .notebook-title {
             font-weight: 700;
-            margin: 10px 0;
+            margin: 0 0 10px;
             color: #666666;
         }
 

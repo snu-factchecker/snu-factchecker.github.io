@@ -70,10 +70,16 @@
     #credits {
         color: gray;
         font-size: 12px;
-        margin-top: 16px;
+        margin: 0 auto;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
+        bottom: 32px;
+
         span {
             color: white;
             font-size: 14px;
+            margin-top: 8px;
         }
     }
 }

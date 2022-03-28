@@ -599,8 +599,8 @@ class QuizPage extends React.Component {
                                     <div>{keywords}</div>
                                 </div>
                                 <div id="warning">
-                                    ※ 팩트체크를 위해 검색할 키워드를 찾아야
-                                    다음 단계로 넘어갈 수 있습니다.
+                                    ※ 검색할 키워드를 찾아야 다음 단계로 넘어갈
+                                    수 있습니다.
                                 </div>
                             </div>
                             <div id="hint-wrapper">
