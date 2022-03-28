@@ -572,11 +572,19 @@ class QuizPage extends React.Component {
                                         this.state.factScore + 50
                                     )}
                                 </div>
-                                <div>
-                                    팩트체크 단서 총 6개 중{" "}
-                                    {this.state.cluesCollected.length}개를
-                                    찾았습니다.
-                                </div>
+                                {this.state.currentStep == 0 &&
+                                this.state.cluesCollected.length == 3 ? (
+                                    <div>
+                                        1단계의 단서를 모두 찾았습니다! 다음
+                                        단계로 넘어가 주세요.
+                                    </div>
+                                ) : (
+                                    <div>
+                                        팩트체크 단서 총 6개 중{" "}
+                                        {this.state.cluesCollected.length}개를
+                                        찾았습니다.
+                                    </div>
+                                )}
                             </div>
                             <div id="notebook">
                                 <div id="title">팩트체크 노트</div>
