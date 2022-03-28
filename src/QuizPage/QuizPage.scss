@@ -397,6 +397,8 @@
                 display: flex;
                 width: 100%;
                 justify-content: space-around;
+                font-weight: 700;
+                font-size: 14px;
             }
         }
         #hint-wrapper {
@@ -438,7 +440,7 @@
         background-image: url(./notebook.png);
         background-position-x: center;
         display: grid;
-        grid-template-rows: 20px auto 20% fit-content;
+        grid-template-rows: 20px 50% 20% auto;
         row-gap: 8px;
 
         #warning {
