@@ -694,10 +694,14 @@ class QuizPage3 extends React.Component {
                                     </div>
                                     <div>{keywords}</div>
                                 </div>
-                                <div id="warning">
-                                    ※ 검색할 키워드를 찾아야 다음 단계로 넘어갈
-                                    수 있습니다.
-                                </div>
+                                {this.state.currentStep == 0 ? (
+                                    <div id="warning">
+                                        ※ 검색할 키워드를 찾아야 다음 단계로
+                                        넘어갈 수 있습니다.
+                                    </div>
+                                ) : (
+                                    <div />
+                                )}
                             </div>
                             <div id="hint-wrapper">
                                 <div id="hint-area">
